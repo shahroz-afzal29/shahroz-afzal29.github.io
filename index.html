@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Shahroz Afzal — Portfolio</title>
+  <meta name="description" content="Portfolio of Shahroz Afzal, Computer Science student at NUML Lahore. AI prompt design, AI automation, Java OOP basics, and 1st-semester C++ billing project." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #05070B;
+      /* Crystal-Clear Glassmorphism Tokens */
+      --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.03) 100%);
+      --glass-bg-hover: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --glass-border-hover: rgba(255, 255, 255, 0.36);
+      --glass-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+      
+      --text-white: #FFFFFF;
+      --text-light: #E2E8F0;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      
+      --blue-glow: #2563EB;
+      --cyan-glow: #0EA5E9;
+      --indigo-glow: #4F46E5;
+      --green-accent: #34D399;
+      --red-accent: #F87171;
+      
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-deep);
+      color: var(--text-light);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Luminous Ambient Background Orbs (Makes Glassmorphism Pop Clearly) */
+    .ambient-stage {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 0%, #0B1120 0%, #05070B 75%);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(95px);
+      opacity: 0.55;
+      will-change: transform;
+      animation: float-orb 18s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, #2563EB 0%, transparent 70%);
+      top: -8%;
+      left: -6%;
+    }
+
+    .orb-2 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, #0EA5E9 0%, #4F46E5 55%, transparent 75%);
+      top: 28%;
+      right: -10%;
+      animation-delay: -6s;
+    }
+
+    .orb-3 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, #3B82F6 0%, #1D4ED8 50%, transparent 72%);
+      bottom: 5%;
+      left: 18%;
+      animation-delay: -11s;
+    }
+
+    @keyframes float-orb {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(40px, -35px, 0) scale(1.08); }
+    }
+
+    /* Interactive Cursor Spotlight on Desktop */
+    .cursor-light {
+      position: fixed;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.13) 0%, rgba(37, 99, 235, 0.05) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Mobile Touch Glow Ripple */
+    .touch-ripple-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .touch-glow {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(37, 99, 235, 0.12) 45%, transparent 70%);
+      transform: translate(-50%, -50%) scale(0.3);
+      animation: touch-expand 0.85s var(--ease-out) forwards;
+    }
+
+    @keyframes touch-expand {
+      0% { opacity: 1; transform: translate(-50%, -50%) scale(0.3); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(1.65); }
+    }
+
+    /* TRUE CLEAR GLASS CARD */
+    .glass-panel {
+      position: relative;
+      background: var(--glass-bg);
+      backdrop-filter: blur(26px) saturate(180%);
+      -webkit-backdrop-filter: blur(26px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      box-shadow: var(--glass-shadow);
+      transition:
+        transform 0.35s var(--ease-out),
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.35s var(--ease-out);
+      will-change: transform;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .glass-panel:hover {
+        background: var(--glass-bg-hover);
+        border-color: var(--glass-border-hover);
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    /* Top Minimal Widescreen Navigation */
+    header.top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 5vw;
+      background: rgba(5, 7, 11, 0.55);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text-white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .live-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green-accent);
+      box-shadow: 0 0 12px var(--green-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      opacity: 0.8;
+      transition: opacity 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #38BDF8;
+    }
+
+    .nav-cta {
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--text-white);
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--text-white);
+      color: #05070B;
+      transform: translateY(-1px);
+    }
+
+    /* Full-Bleed Widescreen Sections */
+    .full-screen-section {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      min-height: 100vh;
+      padding: 110px 5vw 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* =====================================================
+       SCREEN 1: HERO
+       ===================================================== */
+    .hero-widescreen {
+      display: grid;
+      grid-template-columns: 36% 60%;
+      gap: 4%;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hello-label {
+      font-size: clamp(1rem, 1.4vw, 1.25rem);
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-name {
+      font-size: clamp(2.8rem, 5vw, 4.6rem);
+      font-weight: 800;
+      color: var(--text-white);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+      margin-bottom: 28px;
+    }
+
+    /* Clean Circular PFP Blended with Dark Background (No Frame Box, No Upload Button) */
+    .portrait-showcase {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      background: radial-gradient(circle at 50% 40%, rgba(56, 189, 248, 0.18), rgba(5, 7, 11, 0.85));
+      border: 2px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.65), 0 0 45px rgba(56, 189, 248, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      transition: transform 0.35s var(--ease-out), border-color 0.3s ease, box-shadow 0.35s var(--ease-out);
+      will-change: transform;
+    }
+
+    .portrait-showcase:hover {
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 32px 70px rgba(0, 0, 0, 0.75), 0 0 55px rgba(56, 189, 248, 0.26);
+    }
+
+    .portrait-showcase img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 16%;
+      display: block;
+    }
+
+    /* Soft inner vignette so the portrait blends naturally with the dark theme */
+    .portrait-showcase::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      box-shadow: inset 0 0 34px rgba(5, 7, 11, 0.68), inset 0 -18px 28px rgba(5, 7, 11, 0.55);
+      pointer-events: none;
+    }
+
+    /* Right Side of Hero: Clean 2x2 Editorial Grid + Icon Bar */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .editorial-card {
+      padding: 28px 30px;
+    }
+
+    .editorial-card h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .editorial-card p {
+      font-size: 0.94rem;
+      color: var(--text-light);
+      opacity: 0.9;
+      line-height: 1.65;
+    }
+
+    .clean-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .clean-list li {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .clean-list strong {
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    .clean-list .sub-meta {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Compact 2-Column Skills Grid so Card Stays Exact Same Compact Height */
+    .skill-badges-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .skill-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-white);
+      font-size: 0.84rem;
+      font-weight: 700;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .skill-chip span.chip-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: #38BDF8;
+    }
+
+    /* Bottom Social & Direct Contact Strip */
+    .social-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 24px;
+    }
+
+    .social-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      background: var(--text-white);
+      color: #05070B;
+      font-weight: 800;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
+    }
+
+    .social-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+    }
+
+    .social-icon-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--text-white);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .social-icon-link:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .social-icon-link svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* =====================================================
+       SCREEN 2: TABLE OF CONTENT
+       ===================================================== */
+    .toc-widescreen {
+      display: grid;
+      grid-template-columns: 42% 54%;
+      gap: 4%;
+      align-items: center;
+      width: 100%;
+    }
+
+    .toc-big-title {
+      font-size: clamp(3.2rem, 6.5vw, 5.8rem);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      color: var(--text-white);
+      text-transform: uppercase;
+      text-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .toc-big-title span {
+      display: block;
+      background: linear-gradient(90deg, #FFFFFF 0%, #93C5FD 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .toc-sub {
+      margin-top: 18px;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    .toc-cards-stage {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      perspective: 1100px;
+    }
+
+    .toc-glass-card {
+      padding: 32px 28px;
+      text-decoration: none;
+      color: var(--text-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 210px;
+      transform: rotateY(-6deg) rotateX(4deg);
+    }
+
+    .toc-glass-card:nth-child(3) {
+      grid-column: span 2;
+      min-height: 165px;
+    }
+
+    .toc-glass-card:hover {
+      transform: rotateY(0deg) rotateX(0deg) translateY(-6px) scale(1.02);
+    }
+
+    .toc-card-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #93C5FD;
+    }
+
+    .toc-card-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      padding-top: 16px;
+      margin-top: 20px;
+    }
+
+    .toc-giant-num {
+      font-size: clamp(2.6rem, 4vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--text-white);
+    }
+
+    .toc-card-desc {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-light);
+      text-align: right;
+    }
+
+    /* =====================================================
+       SCREEN 3: 01 / 1ST-SEMESTER C++ PROJECT
+       ===================================================== */
+    .section-banner {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .section-num-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38BDF8;
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-top: 8px;
+    }
+
+    .cpp-widescreen-grid {
+      display: grid;
+      grid-template-columns: 56% 41%;
+      gap: 3%;
+      align-items: stretch;
+    }
+
+    .terminal-glass {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 22px;
+      background: rgba(5, 7, 11, 0.45);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .mac-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .mac-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .mac-dot.r { background: #FF5F56; }
+    .mac-dot.y { background: #FFBD2E; }
+    .mac-dot.g { background: #27C93F; }
+
+    .term-tab-group {
+      display: flex;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .term-tab {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .term-tab.active {
+      background: rgba(255, 255, 255, 0.16);
+      color: var(--text-white);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .terminal-viewport {
+      padding: 26px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: #F1F5F9;
+      flex: 1;
+      overflow-x: auto;
+      background: rgba(5, 8, 15, 0.35);
+    }
+
+    .term-pane {
+      display: none;
+    }
+
+    .term-pane.active {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .c-cyan { color: #38BDF8; font-weight: 600; }
+    .c-gold { color: #FDE047; font-weight: 700; }
+    .c-green { color: #34D399; font-weight: 600; }
+    .c-dim { color: #64748B; }
+
+    /* Interactive Simulator Inside Tab 3 */
+    .sim-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin-bottom: 16px;
+    }
+
+    .sim-field label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .sim-field select,
+    .sim-field input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-white);
+      font-family: inherit;
+      font-size: 0.88rem;
+      outline: none;
+    }
+
+    .sim-field select option {
+      background: #0F172A;
+      color: var(--text-white);
+    }
+
+    .sim-output-box {
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      margin-bottom: 14px;
+      font-size: 0.84rem;
+    }
+
+    .sim-btn {
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: #38BDF8;
+      color: #05070B;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.86rem;
+    }
+
+    .cpp-cards-stack {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .cpp-feature-box {
+      padding: 22px 26px;
+    }
+
+    .cpp-feature-box h3 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cpp-feature-box h3 span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.16);
+      color: #38BDF8;
+    }
+
+    .cpp-feature-box p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      opacity: 0.88;
+    }
+
+    /* =====================================================
+       SCREEN 4: 02 / PRACTICAL AI PROMPTING (GOOD VS BAD)
+       ===================================================== */
+    .prompt-widescreen-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      width: 100%;
+    }
+
+    .prompt-glass-card {
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .prompt-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .prompt-card-top h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-white);
+    }
+
+    .tool-tag {
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #93C5FD;
+    }
+
+    .prompt-compare-item {
+      padding: 20px;
+      border-radius: 14px;
+      background: rgba(5, 7, 11, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .prompt-compare-item.bad {
+      border-left: 4px solid var(--red-accent);
+    }
+
+    .prompt-compare-item.good {
+      border-left: 4px solid var(--green-accent);
+    }
+
+    .compare-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .prompt-compare-item.bad .compare-badge { color: var(--red-accent); }
+    .prompt-compare-item.good .compare-badge { color: var(--green-accent); }
+
+    .compare-quote {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: 8px;
+    }
+
+    .compare-note {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    /* =====================================================
+       SCREEN 5: CLOSING CONTACT & WORKING EMAIL SYSTEM
+       ===================================================== */
+    .contact-widescreen-grid {
+      display: grid;
+      grid-template-columns: 46% 50%;
+      gap: 4%;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    .contact-left-card {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-heading {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 14px;
+    }
+
+    .contact-sub {
+      font-size: 1rem;
+      color: var(--text-light);
+      opacity: 0.88;
+      margin-bottom: 28px;
+    }
+
+    .direct-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .channel-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--text-white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+
+    .channel-row:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(255, 255, 255, 0.38);
+      transform: translateX(4px);
+    }
+
+    .channel-row-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .channel-row-left svg {
+      width: 19px;
+      height: 19px;
+      stroke: #38BDF8;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* Quick Message Composer Card (Never Fails on Any Browser) */
+    .contact-form-card {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-form-card h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+
+    .contact-form-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 12px;
+      background: rgba(5, 7, 11, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--text-white);
+      font-family: inherit;
+      font-size: 0.94rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: #38BDF8;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 105px;
+    }
+
+    .send-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .btn-gmail {
+      flex: 1;
+      min-width: 180px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      background: var(--text-white);
+      color: #05070B;
+      font-weight: 800;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-gmail:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-mailto {
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--text-white);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-mailto:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .site-footer-bar {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    /* Toast Notification */
+    .toast-banner {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      z-index: 999;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--green-accent);
+      color: var(--text-white);
+      font-weight: 700;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      transform: translateY(90px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s var(--ease-out), opacity 0.3s ease;
+    }
+
+    .toast-banner.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1024px) {
+      .hero-widescreen,
+      .toc-widescreen,
+      .cpp-widescreen-grid,
+      .contact-widescreen-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .portrait-showcase {
+        width: 260px;
+        height: 260px;
+      }
+      .toc-glass-card {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+      .full-screen-section {
+        padding: 92px 5vw 52px;
+        min-height: auto;
+      }
+      .editorial-grid,
+      .toc-cards-stage,
+      .prompt-widescreen-grid,
+      .sim-grid {
+        grid-template-columns: 1fr;
+      }
+      .toc-glass-card:nth-child(3) {
+        grid-column: span 1;
+      }
+      .contact-left-card,
+      .contact-form-card,
+      .prompt-glass-card {
+        padding: 26px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Luminous Background Color Orbs -->
+  <div class="ambient-stage" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Interactive Cursor Spotlight & Mobile Touch Ripple Layer -->
+  <div class="cursor-light" id="cursorLight" aria-hidden="true"></div>
+  <div class="touch-ripple-layer" id="touchRippleLayer" aria-hidden="true"></div>
+
+  <!-- Live Toast Notification -->
+  <div class="toast-banner" id="toastBanner" role="status" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastText">Copied to clipboard!</span>
+  </div>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <a href="#home" class="nav-logo">
+      <span class="live-dot"></span>
+      <span>Shahroz Afzal</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">About</a></li>
+      <li><a href="#contents">Contents</a></li>
+      <li><a href="#cpp-project">C++ Project</a></li>
+      <li><a href="#ai-prompting">AI Prompting</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </header>
+
+  <!-- =====================================================
+       SCREEN 1: HERO (FULL-BLEED WIDESCREEN)
+       ===================================================== -->
+  <section class="full-screen-section" id="home">
+    <div class="hero-widescreen">
+
+      <!-- Left Column: Name + Blended Circle Portrait -->
+      <div class="hero-left">
+        <p class="hello-label">Hello, I am</p>
+        <h1 class="hero-name">Shahroz Afzal</h1>
+
+        <div class="portrait-showcase tilt-el" id="portraitBox">
+          <img
+            id="portraitImg"
+            src="data:image/webp;base64,UklGRjYrAABXRUJQVlA4ICorAAAw/gCdASqkAaQBPmEwlEckIyurpXOpkXAMCWdAxxjFiiXDncmnPZG9mf5EYpCLsWhonBng67iLnXfTRvUVOTdoOP7lNp/gHchJ4v0uzn8F02reMYxjGMYxqeNsEp6VKP5rIQbDPjWtgylJlO43DL06dU7OxOpMxDeaj6ocohApoOoveznDsef0EArZpd1kOjcSCKift/VxPgOFfFTdLOiM8NzNeawwYjgV0irkRrcBP4eZ0gV9GEYTETzZ1u1NUYxaT9UnlvVa1rTHsIKoyJxpqUIl/+QJfNdzO1J38DHaKxjQCyo7mIRYLftvx7EY2fbXKO4ViS2LYT1YSM9PR0VNn1+7q+tNgSQOZmi4F2Me2/psj7WGMXrEnUOZ/4mQ/N26oT/D06GdwG3YyJRh0v6VZiTpcYMo9QKRnufU00qPC7/j56kmhEnJldHBAxDGq5TBkyjkCogd7S+6DzmqGBMhtXQgzoOhlufvdsuuYbVeMHYKiZ71MqO1Udxo6NtF/OArrk1RWgpUMR1B6E4rJTjuh//AOBiILLP79mriZLFyebwBTgoClnpNEMshsaPh8MDZc/TP6QhBVWw9wCwdTodcvlVWHaRXC9SI0xt6wxHXrFcm5p9bmOwIQWPpGGxsukYu6dc02fNvs/vxU24j4A+Ik1gJ2du3Azf7guW3/B/kEfUrQkooOw4mUZWFkvxfux0L4L3dphHZQMnvmyf6D1uF8FxL/X0YZ1Iqw38seUSsjI/useQKB3PbX+OMRGaW9/xKb0HNHCyRGATaMlz/WhGgw6SzJycHZk2fzbCdviq9N9kqQQGZpQ+JerLb10m4KHnOErH2Hntwft9se7UPLJiEu3YBII0kiyqKwSEukaOOZmWRMWKZUga8NRPR4juYUZjB5Z8eA0nidMIsHjYsh13AkRJVoHyrOeutBA9PXDZcIG3g9QX/obP3fus1vdeGOR8RUqm44mqWRc+ORGdbDXXmunZ/uqaVVeTiPYAALRbEjDz4JwIGmJzL7GIJOTAzGXcDL5x6Cl/p5Rb3UVw2/uxaZGtI621rlxjF1dm0Flr0wd0JYCiQn/anmy+S+PA01ZFvIBeahfJnnAb2MKiRyGMG0RkMo2knyOYVTt0166FBm0pR7oLqsDJ4uwzJqri+h1P1jAa+JJDMU2CJCaMEbw6Rwf/3FtiTtHysgtUEzmSJdU4HTzji9lEDobCfgg9v2yx5L5g+Vsj7854P4Bk+Ge/KXaNkyeeHMDuycUP7bk+vz8qEGllOxElNqLA1GOBK0QYV9RVXYdUZaYme1sPkaZViXdr5T6L4Xi+jVETXkYvDM1uD81v5F73XnmbOEm0ZXtd9XoZ9zmutQqi5GHk6fLCYzgv9V8oJhg7JYSegVAy1/YhPTT+SJNGD1UscwbMZnyB6dlapN330nR1x0RI9vxByQGgrhRHPfKnZs//ZvRyOYoQmDKUpQmGpKvoSq/q3n0jGFNCAm1I1FhrxYS74FBqrfyxcVNu6fyNV2AmV6g53AAeJcLxh5f4BH1nNYKXz7CddpTGr5q6pMoH2yjur7iCanAo1gMkVyHfWzW9j0JbltHrGaXAMJnykw9pYNxyEDs4vKJgEnrULUqyhhWeHEv6mcY8I56XW55Wc5znOdkyxDEiU68wFuL1axpAllB91zJI2x6ywlpR4kIx5MTGzazBhbLOWEy2V5KUl6fS0H/pYqDATTqo2N8Q83VTxZGMYxjGOt9bWTXKF69v+FGylotT2hDh+Jug2iiuLmWB8gBSqKfRzUh40IcPjb43jLJNGrk7Jrh5ZRlDejQaic/uc3+IMYxanve8dcEGPgIuzEmK8XTzf3WLNmOruKEXl9Djkv36Z/muvXkl6/xvs9p7A6krhZDfbshDVdNbdfOGaEDVMZl4PNYs8cVJWbjXqdJMIoyomLSK5UC/4LXecBOS2DOGjopVMuBe2P+dMhocp9y29gnP81i8OL9L9hhGcX88COYnRSw3dP7OE8Yqiy9s7apRyho0yQhk5IIiK6m1GXVg9ntpdLZRw2rKzIjuDcdi5TaIAAhwovFLczAabRKeAvASiwQqi8rmtFc+6inky3TGWa/vW9d53DDrGCD4XMzVPrERgSHP9bmFNvic1voUGPO2aGDqvTS7BX/qCUp4sHa8fcIKnsuuUdCYrWi1OkSJV6jpMb6dWkC6uNpMZn5fR0xBNdv30UGOYpxI3O0pt2sbarh7AI5UPVQtirzokCMyC9DtD818kxUFDa3T+YywErPR5d0CC51MiwvRHOr8qQNxXl/EE0PJj8WtcOdkhzbJFYQ+33Ws1EUGsBrUyXwgYaz5vce9UAzROuMfayqqPVVgXAwuvd2/8iHzTTdnq/t1CmCEcUkTJVlUQw7M2D8L05P0/XxI29GWXAkVqFxwVYUZDAKvxKvgZj8apOYQzy7mBHIRz8gMQxW5JCijBuVEtKwq4c7HFdh3XACJs8un+j0bphq9huHY1lk2hZOlayi+6zUNOoWl/JxTD+GYlWImo68SDYY4nny7GmWilXkv71kvlY9rsPSS3R1naYTGnsf9jCJvhMQ/ilygQaCXVfonvvlPPURC/h645Fc+PQGpWeu6lpxNg62OPWwj58H+JlMRkk02wvDNMBb+hvQi//AjrgCXfae231m29QSZQk/CYjgyknObyRFs03H2BvrLY6MElcAmm9bdt6b775McJ+oFK9LcrxG5uu1HmdXhvAAD+76aaqg6JcnrZM/CjiZeR8vCWGjwP1i1i+UZxyr4dfdSgAh0jfL3noKOxy7EjVVEYS1Ul8GZEqE/q4st7unmETKUBCqjc6a3hAzDMigxzTcs6oVU8tDP//UC4uf17x0y5KCQVHskl69bpQozSvzZlFmNbM5EbtHdj0JQb60kMrEzIC6PE34373mYqDE0KWNJmh5jOXYkvjSHVuM+FrV3oCoKRFhWg+Ddbn0YungFovwbt4Tf7BCTRf4sO6M1xa8CvPGdpyVST7VeeChBE/9jOKAuH+e7+uPaMCdu+1bv92wQWdOHbwPx0ShTxVrkoX/4G9Zcv7Ymwxx4e5lMjG2Kchmk6MHyQPi50fa7nKMdhmOO84IHa/LB9Z6jBk0+CqfShhfJE4lB45/xx1adb6C2sg+6r+CHxz3l1ZvExPHpxrdxCUoaPG2A3mO6R0ZPIZh48n63JI+3wfqnzcocae7EvgHzRBcpeya2tuxWRnJJTrcLVWY+GK5TSTmuLp2/cRZ0tRY3GWDhdtenLiIFDlHfoWIviqPvCOR62RuqlrQMJ8BF0DQlr+ZuS526siG5UVItGOSRShA0QoOYHVasZgq+Udg3D8hDp8B2oNwz0vsBXnvxCwRL5//FuSyP7yHjxfxk5T6NUkDMwPgue6gvm7Y54Oga2PMqsZYus409Z3jT4jL5Y0LbgJpZV8i3qIo47gD+iUtcoMocrmXV5b89nRFGUUfYsAsMPxZXyi0erLMKoKTKC0tZCJ5DHXzRqtJh96PLAZ7P27IrTC9Li6ejzNiZDml+ZPlpGxIpTjRCc80986Qar/qE//VrrPF1OZLfmqQU/Hf3ZJgnbixjRN7/l6NLqmx3QP4XCsxoTexUdAx/kMWrJ3sEf2iWvAMXSUPJR/xMhMsuhvt+dcCsiXz+NDgnMXFvAcVAC5+GmaAVio9SoQ9tDIO4etZLFfO9aSQY1w777MV9SeUqu8iH55naOC4Q3/IwkwgRW4Ck1pk2H+FBGvqpYQzyh8/hzwS8Ev4KsNAb8aC32QhC41K+rYfTQjfPsMG/GwuWKZnjlr4EtzDCdLf00yCwP8meZtZyeIqLgL627EnHd5Z6MYks5ELQ7Wa/ncufEu35FfuUfzwfrQsUpMZZh28fNqY3L0kdVybWcbKCvUDZnvKiDNPr+1qZSSAyovkj2p9/yCVBAv11Zi5+ZLm/AnrZYFnF2URbUZe1k9y8GHYSDb+f9ZVtx/z7Xy3r9H6r0WM/1vESJAxmXEWyZJrTQbMo9m6QE0do8NEPvSo/bzjTV+qDSfOia0XwAmXRyv58kGaWMw94nd/8XenIfYHDNpVswn3bbFFveAqt50sXgtADZBcOGwjnLPxFg3WNAt+C0ljiEF0Y+coBNUbBu4/FAkAz53yBeWNfvhMVr5mFDzJKqx6RN334r28amIyahWbmZUSQ2/H9VCA3L0TaTj1zQv9k3Bg50Jc3NwJC8OAg3i/B1w47YPgc1hIsI0SyjtHH42GEwi+2i0uE7Tp1zu/mU/QjzEPORFig8bKSr2+EE8YsYdNnfvR8xxPzI1m0YnWQztZ/POoa5qKxrMItgpTqJV/xmzjEFU+hvxlr8L9ivpA8JRIbyxvG/aFMeabx+Pw3Mzh9sVrA/1YPA7U5Z02rNzspMJnGZi+uVSfMH7EDirAE6c0Wab/tMSOpgE9iOyJT3ITuzmj1ZcOc0LhbhPT8sws1rLiq1Shl3vxDNvxuU45dUL7usGq0MfrRIZamHQG+t16N58LNWPvIn+oPrmbv5Cha5gziWDc8e/xBD5wOL565hppjUgQyN6J9RPoaNxAjh4kUhMuvV7SGC4lycF+U1Ynjs/6x2itNYCq7xI2mg3s5Dh3YuaNV6Y6/9Pp7ft1uud0MBbvlH/DlRkxb+VKSSk9V8AO9kx0RUxnfzR1CFxTKN71mzXo/0sEOw27ddNaq6lYhD/71sIJYh3mrH1xcoeSFsL+swHG5ayIq1qCmHg3y2GdieRy1yOyW3NujqukL9/FYtnAzKSqDd1een+SMbuu/A1jZV+yolP7aK/TP5N3lmtpRcfax0/pcYl09Pd/+gnxjkiOv0RJkylfDEFkbERo4vfs/ZBBhCB8ktKSAw4Het9K4Iz1rH9A/P83vhv1x7NWT7hyenazcVaj0iDnuOnFj8hVJncR5A5P+TXOpMrrACaamrk7f9JuKHXQuekfIbPOBxvumABBywUC0PumzA7Rt2onUg0NdI+qJYe2a9Bm18/GtEt/y8WL0gatj6lRhT5ko8y7LGsjg4j/o4DGxu2enpzmoVe/gspxD9rotkUwuYq7fCMpv1nDEdpnNTWsORe8G/hqyEN12josWf0hnJ8/DmcslEVe+BB4m00snvtv695TqXVTkg/+6K28uQH36wfHLINj7RGBiLwUIis3saJ5XSGSAaRRHY8Vt9ADLgoEmiuNNuMmeVc4D5uWMxkCngqO1Z+JeBT9sJ4yG9PWCkplOsl0y+TCObrIbnDItCHo5savjPD3Q4Iwj7z94JBJgpw389GtuJED1639rA7a//sNsfQKKpvKTwlFxrBnZxy1c4102BwNX5rWJHcCMUrvXUc3WIFLvafzdaVD0gKAdde174Dqti4hxamIvZ9ZqjlEhv1pOWVPSSnsmOiOTQurPZo+VZ/qP6Gaqbh40hgFlhZkzduBd5QA3mvCO9Y3yyNWVHfyT+sk42PpfynGKNXEPfvnxOI0Ta9Y/DXOAk2MSDSa8f8NEGitAMeNj58E6mZ+2nLp79LnHDz7w/x1MneOXtLN1l1nyOStpzDQt568KDZFJQwZaNZt6Wo4WkfXr3L+k37f4OxhrRNvaUNr6hFLBS4/x/Z4dAys+pmxOyK8LWExdUQRJqPP4cqN1yM3FU5o48NBJIDNWDZvwp2jAlLAXJDqNTuIiP3yyTCTzigJGs63yOGZBnelTViZdPGIE2FjmnR8X5bj9u3RwTc0kqMaBBG5LLNO9408DRraGx55P5RbJkj0bbUej4oNW/madP7GTiS/Q8XTWHPkDEfPvxb9q7Q5rthW/FU5F2kQ2QfxcpGvwQRM4tOavI7TJePhbF9z5ZXVaws9xK7ZaFVYfQ7MMuaDibZJ3lvU+Y2fFVS/oRpYe7HUzYhbkRAHILYMik/MY1/c/U38wq6UWLqjHwXHoO8MqKXdvEhtgz547C1piPKuvvAJfeLjdZ4whixfxpC+s8CASkULEQhktm1PqgmOY75kYQAxgxXS2eeZkDlzS7kKCjhIB4F/WifxQCO5X5vowsxKANGGlpdQYIgFw3BwJIyV3+fCaVTY9hJfIh0D/wJfIu175YpxrJGOPuaq9bJoO++d2arZAD0lpZqMW+ORLTtLhosKtPX/i0B8KgSZwTR4bgvk28MAaNu6ihmcLLZN/giP2jNl4iV+dFz0q4TCGmRf+Pdez5pg7ByoM67zJuP4jHbSbnIgQyl90GEjNhDZySa79bwNz6IW5YkYGngAhonqkYlsUWBE/D8zIqzuUwWyGxa/gmrzihrbO/ROr3kR0nU/QfY9myP7v6LGZGjsiV7szJx/474HukASj0Ln3yTSJ2KkjFRACjK8P8BMnmAIqjn5zhucj/HeIFdTJ0+UUsPcdJLmWN5lYCHbLE7FLRyV7ma2dlsoi8eaYSflyTa85MUXNorlYy//vSHH+wD6GgX5R+gAgAnbSqAm0dhlYRJvMjJRr9kTTc8hV995W7DsiDp0ISTEHAzgLukoSwnBpemXwYGGej87zZAMk/XS24235jep42Si1hDOnOst47AalVV8qN8uLBIZSRQZ1S2uxoGZrJecN91iDFQfQJQDz+uwUv1HkLqx6sTDVtU6L4DO1joMAwOrQ9fmqB1wSE/zIOVhYLBkggWd+904UHkSxg/7Lb1vpadcQpz8PDhjgQzbseSj+U90M2AXitbvdPvW4wPjZFPy9URUlCgc2X1KVuU4NUHHjUrYsI6ceMAHNhh9/kqoo2KGWqQ5e6SCAfkSl/B5Wc9euPrv0ZQy8QXeP7izYjd6JekeOgcsfpK6/5P0xNaW/IAnVkfsRenjHNMW77dm3rm4torydWyE1FexEmxUP2cVSv+m7QL9khW8SUEa+WXCTNnk9a6PtRLVq2HlNBKS7sbrH71oihIO09cA8k5uz0moE2H6jIvvSVNqTM+ox3Jl7XqRCZDRr/JK9mH0oU5UMd3FxrMmp1DSBKhGtpOvn6/p5paMyQlckvbVR8Fg1PTAIRJN9hQNf8c68UzxAXftkDysDoQeQBxq3R54BnqlwEbvTH/4hSKuPfLalZsa4J9E21xwdm+eBGuxwupTT3scJJJ3/CQxg+1K7yMxL7tLzt65hvaeRHXvhY6cwYxLGS8Qgmnr2q8wYE5pl0JGqMrz0Bdx/lTqcEucR1pT+zCFpfln8saJ8PhrwY0/3PboRUh3rfXvJwCQ44A4KCX7UvK5RqoSVIkMNv7SSeJxXm9c+BFBvAg8GvjCq+z0sUoK8bkYDmLMS060sh+5XBfUhdXaUAYuPEW0R/DW4HLtZAKFiATpaClnxrH8sRJ4+MkY1zjwn1L4K2GwvWjZUnsC/BCVGtjgD8Z63pat/++fAVtszhADGfuz1VTe2tLibPI0dTYUmSse8KuNBfWZzUSrOIF7KrqUWPu2CcnE26bzxJL29UD70ujEeAj0xMi6wUYxZQejMqXpIqGyJ7fex3HvHkz/Q/9E0cL/mrDMZzXGo2QIMYIFzKSkeui0v/LRGOoEYrPTUqElFssa8yQxyrJFE3WzprH9hyhGluK1h7g0yqWsfvcRQNNshxxLG0i450wRvsW03e/W2r/o7um4RzSJNnHw5zITrWFpOoK5oGmmDvQQZEAriZPrQfqeN7DqTLKb7CRZ27nCyRftLaaoK9nrCIykJZuvmufdhvEq6T8AOhm6XqPHD5xO9UHA0GgRsL1wiZ2lH+A07YilEDGLF6ZdL5u53sL/l3LyM93of61d33UhZckLDFRQeeb5UnHzTM/q4ClpYRWV2/u0zs+/qElCrI7D0Vvr8e7/qhfB6YRCdNfBBGKm2PR5wtRgF96+3QTx1jTZcaMUisxxOrf7MbZ7SW/ITOYJKt8uAJNUDI2a3UlnQI+igmiF7wDnTAq4YPr8EqFVh3hFsxsOeo2w4Ix3PPjtRjtI/lfNdUawIjjXnqOno6Y5r3oQHID0ORg3Mr1hqX1zpNcZhcZdOIHZiwV+ul2fvawqJCqie4mZYjyxq3bEw4SeiBgHzGpFBZMm/5nKf2Ios2MVJflk0VO6kzILsCsINX+JuX3T3TmCDpidttWHgkUKjttPgInAmFijF6b02Nsv3ZB2oZ0x8I2ezG1MtIopIyOJU4+7uDpYDobyCGcIjLKeuFzm+H/YY4ohwb0Ym5p12w5M3rk/2JEkk+iFMVUvjJQVObEzI7RcJKxqCld1mb4MHHGFtG/RdAtt4nIa8tp4AsWPnK+xxCwFnaKRpOHm0/sbQezmkZDiXUX494NpobQCn2ZQiz64yObFLIYgWZNTkoScfIDuwS464CCMg1fx5ppAuAClvrXOeeWYBdvvL1qlMeoqYsB2M9y1cLd+zZ82AiKyDY6AN7d3KUqcRTHzkWfP/ev+MU7wRzJveI/V4Kgg0QW8mEdU2o836YSpJWiAS4y2/EhkzrT/9tfMpj56ZOmOtvVaoRNU5rdNqAxi54XxHMlYLYuaKiSiGxos5lr3fvYr6RjvB20w2n5ZjUc+f8+HZ+Hozo7bXP5Phy+BCiith0Leq6Ozba5eVgg7ZAlwC4YTP+t6zqz5mQgIiMMAY8pJP05YgDdGlg/uG2VUq4DaPQFYYbEZyEn2+R57yosXs50oUV0MoXX/2DXREwLbMCIeS9EiG0eO9AhTuM1NXQEE0ZWX9tlBuHgIPNFSTms2GTq38UKMz8NlREQKqT+Y39tV5yG6QVchttB52zwbyPGo2RMXlcls3RqAmH+jYQx70ER4QFBRUAwy795ouK99dfR1c01IT0xi9KNNgFlSJVh/lB9V3oBB1mufG2WEsKZLSDS/RCTj6CnALV4yh30qSZrtZDU7VX2Hai0GmqeOqlwscqtdvHXZqgeRT3P0Hx9L+3T8iPsIJlSfKeeRFsszfankQz+Jt+KdDAQXsFF/f5+GERdxA/xusQkDa4okn4sxCvnBawyxeN1GkgZ/qewsVPG2ROofw8fst+WgXCCm8GXXfrpH4LQh4OvpKsXMI2vz2LB8mtgvB4tDbffssN+ypqxbpnszw7vY+HGRxUmt75drdn29QPzPGY3mpfzb92B+EU73Y3x4o4ZEFDp0lueLlSorHoo1G6UUJjTnVxeumkHND01qaMbqnY7BQSj0mi2Pr9LhuFbHJ2aiev9Mm74DpmiIur66tf0uhDmK8MPJvw4AgXPeYg7fSgA/p1LCEN88KecGbL24kTKcBg6HaZgvmp4S6X7n1rrNac9V9aX7Q91Uw+tfR64JRNFfNEbpQxL82VWdFlb/lO/weBsbPBCRClHJZzTDRUXgvQdnvJ2J6ldcYR/GoPTgmxkRyBpa2hKB0U2lMhxZ+X2u8gOiW+b4w9fpSvdMel7s9I0tJuilAF/XpNWxcYA/5lXlXwCdzg55BmCTVR75wVu7HaqLNBZ5z+yNIsZ9XrFDZLAHHyj2bDqG8SGcwaXLspUe6urE2IwXppV2W9VQt66hYITv91SFhH6zMmePe++DhFfbRs2GK6h/HFCiqlJvmK6oyQN+DM0mMDzbCRcuFD1Vvc9V8PppkQVP1w8eICZZF7XSLzd3sOV9I5LujU2cLEjl/4CdBsXNAQE1iQWcvUt748HtDdy9yRytUZT0rL+i+BK+ogN1cDFk4YmZke6oHi99HJa7LZRXyqi6WIpJGsEL0hdyFpFLLS77pDHwFIqQk/A+iCghoHWQZLhdw5/17KGZW+4jCXprw8A9FEhvhRWRD3zLXY3FRSucRQ5We9Juv6QMs91b9HtbeQ5b8Ng4xy9cFNdKYDAPQ1DQ0l50dU7clW7ANUUBm9fWhpYPwy83ORpr55zB+6oGaEetIsZ6Q5moL/QZMcL8wmlMdCMakX8InI17Gjh7Db7r+Ib6AITMteunAYVP6M8wLpwAcZgYuxkZQF+FYwZykSndxQsxEB7OVEQdRJNpIQhbPhDR+tcVP53ySjf+P7RixjmPPmwWGygvK28eQ/wNHAx5XzGqsBgU69ZrQUqeB9zAvzwgDSZGIGN/VmAY/XCaANQqdc/3ErYIL7VieSBglOjlxtoFeRBM4MSywU9eUOEe6AaLN7QKXJ2obtdEoxt33fNOQyVM9ahy2y1Kk/1FkHkprB/bWK7RnOypgxtCZ0i5/O7+nQb0TutMU4Htjo0QeXhfcZ+uGu6A9mcwvNQqYSaHJAzBTTxq0JYu9oa+GdIhPAubxxlNVnb6fiNNfDHifaBzV/0dQcoyRtsbJs2PqX80uNSC7xNMioh+4k8mpGFZHJwMkmubG5XfYx5leTs3qUz77NTy+ZdPaTAY6FLzp6LhZAn4xGe5cJDOV+YKMZw4g6lokJxO4thtVscWBUvLLIwbjarSrtU1ALa6PSVS5mRAMYyKa5BG80QI/1ebQhtsfYVAKTVMbHKJy6i4+aI0p0AffliTdppV1QdWs/lfJfRYPhTYVEZfoTqVPoOh0SjRtYiOFD9Z5DxsNDs2Wjujm0TH3Mr/Xx/cEkFg6vhv9a8MuvCc9rDzAueWpcCsZTA05DbXdgGnaV2cx8j6IU7wksEAcq5Ag8EwL9/r2ZR6HD/PwXVV5xWihYZww1if2U6c7uXOYU+2JVtVlvknMHgrLtR3IfzkLh8v43UPHTct4ud3o/hTUfaU0JO4dqi8WB9Lco4wsXargrOabDctQehP5Qz6kqd7rAj2iHObk0sMqGXSPMVf7d6aDFU874HtK8jSh8RuxqCK8Yg8Y+kTxzd5giXZp+9wJwL8JYU+pDiGkRwatTur8Aw4XHT9B9mIvWmZrY3tSr6k5ZDLefuggyw0v2Rhrtaf+u6C6NBapgN4324CeUwZhSdVXsu0HyMisjrQivVMhrR02WyrRd2D9sFYVq3c8ypeYz35biV+LZhv4gh/V4VRTX1TNkTCkT2I6CL6rnxixLTunYiBGrqzWIJ/nF4+V6AT+zwBYJQBmP9/hxdKOLk5XHJltAE0k1MLHoegBn+5l7/rKjjGl2aeMYdBLufZe11+lmGvxFuerc8v669wbxiWLPHPNbovxOtfS0cG21OvWyrjN6dGfIcJiAy9yl4XGlUsZ/fCkb/LAM+3sKB6vo/x3TDcOFElYM/8lwwz5p6RQMpB92DoECXQHC31CySzH1sAVIny55lm7eMGbQpvoZGbBGQwH0v9notS4y6QviPtrJTnLEACnKqLIEE3jj/GeTG5PNLr7Xyj6LvZRyfkLq8Ktyz+PjrepF0eaPLj0F/RTASu5FfJZ4JMMUYqh4WLtGcR/JsbXQnfDiFlmjLkXAN1Q7Jq9JNgi1GaTiPMnrNekdW+MS9T2jD0BaRueZez+dQpE+EWH3yRdcWcAZ2nXyIwmN0PkxbnVGC3vo1vXsIabzWaBkdJJL36G3Uk/oIodExKP8ClHzmEDodTdvNJKHaWGyZ4MxRuFmFMM3ALzGWMllNCfkqTPJ9yJXf5QoD/+L4sJ2dlWyw0UUO80vHvHLseHjXiLkssrLhwMrEm3AB7N3V8bGp8HPo/9SbrRgQqYq5JgTy0/lNqe7p6/VKyFk8gHjokZTpp3x1CBf2mZWhGmwr00I8BkKlp/A4bLxAFwqaZYgsq0zoRbSv5tw4QiOAow+y7r6a2Kqk9G3iRWzXfVX1xgXxc4BG7+A3Dzon6FFBsCJaJrpNHNwytNVQSL9A/VuhpSNHyzE9L+8XvQG9acabNV1IJd1XjzmJRkpLbRKha+jZ7dawfISjBJSGwHK8z7FTRk0UAeot/1Cm+ET7oB0auUxS40TtLVxZlb/z+3pDMCpWZhzkQ3gDLhaa2VmcztoQ4EMSYjFuwXNtgbtr+BKYdAN9n0cmmYJa6zOPKL2UXXCtjJu3q3jAN3/eCXbWNAM3bEeC0Qebp6O8Kb+z7MPikcZKqOUg/ZziKkVZ3I9FJ1+FS+9un+z9XKm6/7DMMVlwSdJj14uZkvl9Mew8HQYq9qFGI/7Pm+QBpPM464AuGgTyZ0ZchgYJNYdR3tEOp/bnjkkt4/YnuRD9MKrc1pCbzHjBZJa+sVPcCZal8oStcQXEjEYaeS/7k0ZzTFDfNsesIRjZfpqslJ5uNgp4xMArGr0mDvN5Wb+Sw3x7zJ7kx2dctlbZ4OF2CRuiQYDf9nWysDNQeDWay/fSPVz5bwB8ndNnwmESc5Q8/dO7DsXL/aDEHatfSUKOLtEBsxMqHO50bkfcn6/Gs2jAg/UVElwk2Tdp5RjaAueud5bviPsJhz4y86DlASBKaibBD1ZoYbKCpHYzqwn74ij6vRG8RgCyZQMROaNcm/4SILfZC0bfhOJCbfi7x2RF3VnX0IAc2hOz5u5fGtCNmXFYLzZ7B6eWxtW+IfohQWTLQJrEBW2DAFEeYY4mmeZZGx7c9zIjkmMcu0qqyVM8sTNcL6Se6/Od9Syk2LFSl9EJvcK0T4tCfYgS0rLeagDtIt1NXRBiN+HUdoKUhgRs6lAmzCf8DEf0UOpVQtggv9YlYowfEzEw6mqdq5NtnfKTxZ68x/CQiCAYfJfC77I1SZOC0HpyRnWja6lMnMaMwBXd+jxjzmEiP6Hbg/x0MPVckxI8M75oFqetR1NZCSzFPd0tyEtrgsRWLLEacZrPuNxIHLUh+6yczaRSLh/C/2trQ9ciAPIIBczvxAfFELiPUT20SHE6U0kUNgvxu5XLxtHLqjQxqTcmbG2Y1pjxx4Nwt8jJ7i34LONyE3qBbEL5CkPLWEMkCxZgfRkl/8USCis0STkfW7kEHcvftxX41t+5+BpyoYDxoqNblHtWUr39n/W12Eh5HkcsYQfrCTPdpfRrLQbsoztqWpymSOp1jUCIP16ZxM6YtI24bgqU0EK8p7QixnBu2H4GUVMKk6cld9VQK8xkiQ20SkPMbDnpRma7BaBAv07Ua9aJUuPpXkckEejMhy0vNEv1MwsCtuI679AdByCNV4F+8XvH0BMsOfOK8dACaygSI8NjDMI9uUMzPxNiVloY6SccS7ulMjzR3JYzyjX5Wyye7UfnW9tpOgmHyAMtvpptD5NI4ViOxJIcLi/997XcLAMUY51YzQPCneZpKhgp/esWTxKgq/+QPqu85KL2daWvmjFLzNvaXc5gYqteHth6qJLomzFG+LFTe8p21vlpKHkUThGq/fxIdqcgbmSuobfWhg71DIPweEUhGiifMnTaC3XQTBKPZOz36XJfFuUv8XP/V+9Hw3axHWZJReZfQimFaPX8oFpTBtMH34Y+4DtKZTdTuUc/x7pVet1PRBpmj+fD5K3n9zRexG/mOPW95+ySxf0Tl1fMx7vQn6w93DVOwDi35X969pH3C9YuCMz1yS8vp1hlKcWW4PWv6bWYcK7IDEvPSNUkdC/jY0sIiLToGHgZtnnEIju66JzFSHZIN729hjgrWFMRthruZLAGShtJavg4rOm/I05fWlH0Gp6D30Re4kzX9bc+of/hCN1CipqQsc6wGvGWi/rjLDqx7mPAY8bZ+Yz9EKcocAD/N5bOQuwcILd+ksut+QgFP1bMm1V8HFBk3HTP3jC3Uh8uyf3pkBgLtMCJ5wCjjAqEEJ3IxrR+3ydSoti0R4mxj5pxLZxpUtPbB9mC/oUiohQT8db58M8HKWbh9Dlfpt61To66c3mbvvLdndWpvtInPMgMvi+CwqyxTutvAfU8/ihUk7gaOE5GYPVD4655pHwjFNH2P/qoND7Knk6Y4ToQLyc52D4WiFtCeYqVC+AY2U+hSdR1ukS0huA4gEJ+2lP6yKMOUByr9vxVxxr4wc3Q8eofOw5t09XPGzbrl/9t2ornY+Le54qCL+EgxTY6bN5Xr/ob4h+2MpnRaseIylVjd2H7a3AO74ETlN1z/1DnqxzDnmlfaYc/Q3NRtj0TYPzwIAHrcFXcsD9Qv3mpI3m3mN04CpT5gDsAUjmLu9xnkdXsKdUH/QdmlYZcDdFBrYx8AiABY89MjShU6NrnBU8BwobTEAkMK8faBFCXIrYkqidmC59sx9Ve1HaVRE0zFemD2kiZZ8qQwnCH+6cjCn4zdLaqiePs5F0mClvMcESVNei1dN7hHhcXG56rVmhjmT2TWuGQfaF0FIy/hkLdJM2NxLDTJ3ieoYhPU4wRp8DCMGfpRd8/YwtcqlFvJgizt/GeEIff0sqP0KfDF+h1NkO8HWAJU44234QkNaq7TDHAS0FIeiTDgXyv2h0GSNhkDQMzJDzSwPN6rLL+Q+X5PHVK9n9GgdrygwZLWjIJ/d/JP2VVr3zdSF/9rzXcakGKzSNC+RI4Kn5nXQrYOCipPnF1+1rZN3tlxG3MalFjyFKAAc/x20DVxDZm3RkES0rYh4wvHwPZHok/nLUNx0dl6CfNS0ZykIjWbwVJcNyJzpu0itwX2icbL0EgbYloI1Pry9aDzk2gyeubSYagcQdyskjG90p0nd+Yepp14vyjd2jyCizs8761fVdNWTD1ZsrF5UuqmN26Tbtgzfza344djInHWrmIj5y5DRqIV4mN8qR9NWBiCrlc7zJnevApU3JP+u0NvftaX6ulWpV7C7m+q7m3oNvmkuLUw7UTNYSDw7wzidoKYm+GNoOHdLzGRjDqgSFug+yYlrksGFxZUj7JTSa/zwNx8BRFodHnnSVpjwHOFHCqREMae1SeI+W2B4QbtAYkcBkkMmgo3RInlGbEEzA8AnpG7wuysi6/9tCyUQfZYr5WjUQAXEuyahqBptVfKFS+BuFyJJgAWANDOmKpYKrqebB+S+MX5/ktJ/jvaoad/zX+nIz09qFVaKFuYTC+PtN2V++vVIySCRBhS9QFnvgWcerfRfma+9ipbHOzAWzAWhuibnOU9gHdO0ELWNWhaBtwTVKwbEpgiAA"
+            alt="Shahroz Afzal"
+          />
+        </div>
+      </div>
+
+      <!-- Right Column: 2x2 Clear Glass Grid + Social Bar -->
+      <div class="hero-right">
+        <div class="editorial-grid">
+
+          <!-- Box 1: About Me -->
+          <div class="glass-panel editorial-card tilt-el">
+            <h2>About Me</h2>
+            <p>
+              I'm a 2nd-semester Computer Science student at NUML University in Lahore. I focus on learning Object-Oriented Programming in Java, building AI workflows and automations, and designing clean digital visuals. I'm a quick learner with strong communication skills looking for an internship where I can contribute and grow.
+            </p>
+          </div>
+
+          <!-- Box 2: What I Do -->
+          <div class="glass-panel editorial-card tilt-el">
+            <h2>What I Do</h2>
+            <ul class="clean-list">
+              <li>
+                <strong>AI Prompt Design &amp; Automation</strong>
+                <span class="sub-meta">Writing clear, detailed prompts for scripts, images, video generation, and AI workflow automation.</span>
+              </li>
+              <li>
+                <strong>Java &amp; OOP Basics</strong>
+                <span class="sub-meta">Currently learning classes, objects, and modular code in my 2nd semester.</span>
+              </li>
+              <li>
+                <strong>Communication &amp; Quick Learning</strong>
+                <span class="sub-meta">Adapting quickly to new tools, communicating clearly, and designing clean slides and social posts.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Box 3: Education & Courses -->
+          <div class="glass-panel editorial-card tilt-el">
+            <h2>Education &amp; Courses</h2>
+            <ul class="clean-list">
+              <li>
+                <strong>BS Computer Science</strong>
+                <span class="sub-meta">NUML University, Lahore (2026 – Present)</span>
+              </li>
+              <li>
+                <strong>Google Data Analytics (Course 1/8)</strong>
+                <span class="sub-meta">Foundations: Data, Data, Everywhere</span>
+              </li>
+              <li>
+                <strong>Learn Claude AI</strong>
+                <span class="sub-meta">Innovista Learn Easy</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Box 4: Skills & Tools (Compact 3-Row Grid) -->
+          <div class="glass-panel editorial-card tilt-el">
+            <h2>Skills &amp; Tools</h2>
+            <div class="skill-badges-wrap">
+              <div class="skill-chip"><span class="chip-code">AI</span> Claude, GPT, Gemini</div>
+              <div class="skill-chip"><span class="chip-code">VID</span> Veo AI Video</div>
+              <div class="skill-chip"><span class="chip-code">AUTO</span> AI Automation</div>
+              <div class="skill-chip"><span class="chip-code">Java</span> OOP Basics</div>
+              <div class="skill-chip"><span class="chip-code">DSN</span> Slide &amp; Post</div>
+              <div class="skill-chip"><span class="chip-code">FAST</span> Quick Learner</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bottom Social & Contact Bar -->
+        <div class="glass-panel social-strip">
+          <a href="#contact" class="social-btn-primary">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Email Me</span>
+          </a>
+
+          <button type="button" class="social-icon-link" onclick="copyText('shahrozafzal60@gmail.com', 'Email address copied!')">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Copy Email</span>
+          </button>
+
+          <a href="https://www.linkedin.com/in/shahroz-afzal-81475b3b1/" target="_blank" rel="noopener noreferrer" class="social-icon-link">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="https://github.com/shahroz-afzal29" target="_blank" rel="noopener noreferrer" class="social-icon-link">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>GitHub</span>
+          </a>
+
+          <a href="https://wa.me/923273298665" target="_blank" rel="noopener noreferrer" class="social-icon-link">
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>0327 3298665</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SCREEN 2: TABLE OF CONTENT
+       ===================================================== -->
+  <section class="full-screen-section" id="contents">
+    <div class="toc-widescreen">
+
+      <div>
+        <h2 class="toc-big-title">
+          TABLE OF
+          <span>CONTENT</span>
+        </h2>
+        <p class="toc-sub">
+          Explore my 1st-semester C++ billing and feedback project, AI prompt comparisons, or reach out directly.
+        </p>
+      </div>
+
+      <div class="toc-cards-stage">
+        <a href="#cpp-project" class="glass-panel toc-glass-card tilt-el">
+          <span class="toc-card-label">1st-Semester Project</span>
+          <div class="toc-card-bottom">
+            <span class="toc-giant-num">01</span>
+            <span class="toc-card-desc">Fast Bite Billing<br>&amp; Feedback System</span>
+          </div>
+        </a>
+
+        <a href="#ai-prompting" class="glass-panel toc-glass-card tilt-el">
+          <span class="toc-card-label">AI Workflows</span>
+          <div class="toc-card-bottom">
+            <span class="toc-giant-num">02</span>
+            <span class="toc-card-desc">Good vs. Bad<br>Prompt Design</span>
+          </div>
+        </a>
+
+        <a href="#contact" class="glass-panel toc-glass-card tilt-el">
+          <span class="toc-card-label">Reach Out</span>
+          <div class="toc-card-bottom">
+            <span class="toc-giant-num">03</span>
+            <span class="toc-card-desc">Direct Email, LinkedIn &amp; Quick Message</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SCREEN 3: 01 / 1ST-SEMESTER C++ RESTAURANT BILLING SYSTEM
+       ===================================================== -->
+  <section class="full-screen-section" id="cpp-project">
+    <div class="section-banner">
+      <div>
+        <span class="section-num-pill">01 / 1st-Semester C++ Project</span>
+        <h2 class="section-heading">Fast Bite Restaurant Billing System</h2>
+        <p class="section-lead">
+          Built in my first semester to improve customer checkout speed and experience—solving common ordering mistakes, automating tax and group bill splits, and saving customer feedback into <code>feedback_log.txt</code> for the restaurant.
+        </p>
+      </div>
+    </div>
+
+    <div class="cpp-widescreen-grid">
+
+      <!-- Left: Crystal Glass Terminal with Live Feedback Test -->
+      <div class="glass-panel terminal-glass">
+        <div class="terminal-top">
+          <div class="mac-dots">
+            <span class="mac-dot r"></span>
+            <span class="mac-dot y"></span>
+            <span class="mac-dot g"></span>
+          </div>
+          <div class="term-tab-group" role="tablist">
+            <button class="term-tab active" data-tab="pane-receipt">1. Receipt Output</button>
+            <button class="term-tab" data-tab="pane-log">2. feedback_log.txt</button>
+            <button class="term-tab" data-tab="pane-sim">3. Try It Live</button>
+          </div>
+        </div>
+
+        <div class="terminal-viewport">
+          <!-- Tab 1: Terminal Receipt -->
+          <div class="term-pane active" id="pane-receipt">
+<pre><span class="c-cyan">$ ./fast_bite_biller</span>
+<span class="c-gold">==============================================</span>
+<span class="c-gold">           FAST BITE RESTAURANT               </span>
+<span class="c-gold">==============================================</span>
+Order ID: #FB-4821  |  Order Type: Dine-In
+
+1. Zinger Burger (Large)  x2       Rs 1,400.00
+   Note: Extra spicy
+2. Fries (Regular)        x1       Rs   150.00
+
+----------------------------------------------
+Subtotal:                          Rs 1,550.00
+Card Tax (5%):                     Rs    77.50
+<span class="c-gold">Grand Total:                       Rs 1,627.50</span>
+Split Bill (3 people, ceil):       <span class="c-cyan">Rs   543 / person</span>
+----------------------------------------------
+
+Rate your experience (1-5): <span class="c-gold">5</span>
+Write a short feedback comment:
+&gt; <span class="c-cyan">Great food and super easy bill splitting!</span>
+
+<span class="c-green">[Saved] Order #FB-4821 written to feedback_log.txt</span></pre>
+          </div>
+
+          <!-- Tab 2: Saved feedback_log.txt -->
+          <div class="term-pane" id="pane-log">
+<pre id="logFilePre"><span class="c-dim">// Saved automatically using C++ &lt;fstream&gt; and &lt;ctime&gt;</span>
+==============================================
+ORDER ID  : #FB-4821
+DATE/TIME : Tue Oct 27 20:14:09 2026
+PAYMENT   : Card (5% Tax) | Total: Rs 1627.50
+RATING    : 5 / 5 Stars
+COMMENT   : "Great food and super easy bill splitting!"
+==============================================
+ORDER ID  : #FB-4822
+DATE/TIME : Tue Oct 27 20:41:32 2026
+PAYMENT   : Cash (16% Tax) | Total: Rs 928.00
+RATING    : 4 / 5 Stars
+COMMENT   : "Duplicate item check saved me from ordering twice."
+==============================================</pre>
+          </div>
+
+          <!-- Tab 3: Live Interactive Simulator -->
+          <div class="term-pane" id="pane-sim">
+            <div class="sim-grid">
+              <div class="sim-field">
+                <label>Select Item &amp; Size</label>
+                <select id="simItem" onchange="updateSim()">
+                  <option value="700">Zinger Burger (Large) — Rs 700</option>
+                  <option value="500">Zinger Burger (Regular) — Rs 500</option>
+                  <option value="1200">Chicken Pizza (Large) — Rs 1200</option>
+                  <option value="300">Loaded Fries (Large) — Rs 300</option>
+                </select>
+              </div>
+              <div class="sim-field">
+                <label>Quantity</label>
+                <input type="number" id="simQty" value="2" min="1" max="20" oninput="updateSim()" />
+              </div>
+              <div class="sim-field">
+                <label>Payment Method (Tax Rule)</label>
+                <select id="simPay" onchange="updateSim()">
+                  <option value="0.05">Card Payment (5% Tax)</option>
+                  <option value="0.16">Cash Payment (16% Tax)</option>
+                </select>
+              </div>
+              <div class="sim-field">
+                <label>Split Bill Among Friends</label>
+                <input type="number" id="simSplit" value="3" min="1" max="20" oninput="updateSim()" />
+              </div>
+            </div>
+
+            <div class="sim-output-box" id="simSummary">
+              Subtotal: <strong>Rs 1400</strong> | Tax: <strong>Rs 70.00</strong> | Grand Total: <strong>Rs 1470.00</strong> | Per Person (ceil): <strong>Rs 490</strong>
+            </div>
+
+            <div class="sim-grid">
+              <div class="sim-field">
+                <label>Customer Rating (1-5)</label>
+                <select id="simRating">
+                  <option value="5">5 Stars — Excellent</option>
+                  <option value="4">4 Stars — Good</option>
+                  <option value="3">3 Stars — Average</option>
+                </select>
+              </div>
+              <div class="sim-field">
+                <label>Feedback Comment (Appends to feedback_log.txt)</label>
+                <input type="text" id="simComment" placeholder="e.g. Fast service!" value="Tested live on portfolio!" />
+              </div>
+            </div>
+
+            <button type="button" class="sim-btn" onclick="appendLiveFeedback()">Save to feedback_log.txt →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: 4 Problem -> Solution Cards -->
+      <div class="cpp-cards-stack">
+        <div class="glass-panel cpp-feature-box tilt-el">
+          <h3><span>01</span> Accidental Double Orders</h3>
+          <p>If a customer orders the exact same item and size twice, the system catches it immediately and asks to update the quantity instead of creating a messy duplicate entry on the bill.</p>
+        </div>
+
+        <div class="glass-panel cpp-feature-box tilt-el">
+          <h3><span>02</span> Slow Tax Calculations</h3>
+          <p>Automatically applies 16% tax for Cash or 5% tax for Card payments, plus an optional tip, removing manual calculation mistakes and speeding up checkout for customers.</p>
+        </div>
+
+        <div class="glass-panel cpp-feature-box tilt-el">
+          <h3><span>03</span> Group Bill Splitting</h3>
+          <p>Divides the final bill evenly among friends and rounds up cleanly using <code>ceil()</code> so groups know their exact per-person share without loose change confusion.</p>
+        </div>
+
+        <div class="glass-panel cpp-feature-box tilt-el">
+          <h3><span>04</span> Lost Customer Feedback</h3>
+          <p>Saves every customer rating, Order ID, and review with the current date and time into <code>feedback_log.txt</code> so the restaurant can track food quality and service after the terminal closes.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SCREEN 4: 02 / PRACTICAL AI PROMPTING (GOOD VS BAD)
+       ===================================================== -->
+  <section class="full-screen-section" id="ai-prompting">
+    <div class="section-banner">
+      <div>
+        <span class="section-num-pill">02 / AI Prompt Design</span>
+        <h2 class="section-heading">Good vs. Bad Prompting</h2>
+        <p class="section-lead">
+          Using clear camera angles, lighting details, and negative rules across Claude, ChatGPT, Gemini, and Veo to get predictable results instead of random guessing.
+        </p>
+      </div>
+    </div>
+
+    <div class="prompt-widescreen-grid">
+
+      <!-- Card 1: Image Generation -->
+      <div class="glass-panel prompt-glass-card tilt-el">
+        <div class="prompt-card-top">
+          <h3>Image Generation</h3>
+          <span class="tool-tag">Claude / GPT / Gemini</span>
+        </div>
+
+        <div class="prompt-compare-item bad">
+          <div class="compare-badge">✕ Bad Prompt</div>
+          <p class="compare-quote">"Make a picture of a futuristic city."</p>
+          <p class="compare-note">Result: Messy, generic neon patterns with no clear camera angle or subject.</p>
+        </div>
+
+        <div class="prompt-compare-item good">
+          <div class="compare-badge">✓ Good Prompt</div>
+          <p class="compare-quote">"Wide angle street shot at night, wet road reflecting warm streetlights, 85mm lens, realistic shadows, photorealistic, no text."</p>
+          <p class="compare-note">Result: Clean camera framing, natural lighting, and controlled style.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: Video Generation -->
+      <div class="glass-panel prompt-glass-card tilt-el">
+        <div class="prompt-card-top">
+          <h3>Video Generation</h3>
+          <span class="tool-tag">Veo Video / Prompts</span>
+        </div>
+
+        <div class="prompt-compare-item bad">
+          <div class="compare-badge">✕ Bad Prompt</div>
+          <p class="compare-quote">"A video of the ocean."</p>
+          <p class="compare-note">Result: Shaky camera movement and random waves that don't fit a script.</p>
+        </div>
+
+        <div class="prompt-compare-item good">
+          <div class="compare-badge">✓ Good Prompt</div>
+          <p class="compare-quote">"Slow drone shot flying low over clear blue water at sunrise, smooth forward motion, natural sunlight, no people, no text."</p>
+          <p class="compare-note">Result: Smooth, usable video clip that fits cleanly behind a voiceover.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SCREEN 5: COMPLETE CONTACT & WORKING EMAIL SYSTEM
+       ===================================================== -->
+  <section class="full-screen-section" id="contact">
+    <div class="contact-widescreen-grid">
+
+      <!-- Left: Direct Contact Channels -->
+      <div class="glass-panel contact-left-card">
+        <div>
+          <span class="section-num-pill">03 / Contact</span>
+          <h2 class="contact-heading">Let's work together.</h2>
+          <p class="contact-sub">
+            I'm based in Lahore, Pakistan and available for on-site or remote internships and junior roles.
+          </p>
+
+          <div class="direct-channels">
+            <div class="channel-row" onclick="copyText('shahrozafzal60@gmail.com', 'Email copied: shahrozafzal60@gmail.com')">
+              <div class="channel-row-left">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>shahrozafzal60@gmail.com</span>
+              </div>
+              <span style="font-size: 0.78rem; color: #38BDF8; font-weight: 700;">COPY</span>
+            </div>
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shahrozafzal60@gmail.com&su=Internship%20%2F%20Portfolio%20Inquiry" target="_blank" rel="noopener noreferrer" class="channel-row">
+              <div class="channel-row-left">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>Open Directly in Gmail (Web Browser)</span>
+              </div>
+              <span>↗</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/shahroz-afzal-81475b3b1/" target="_blank" rel="noopener noreferrer" class="channel-row">
+              <div class="channel-row-left">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <span>LinkedIn — Shahroz Afzal</span>
+              </div>
+              <span>↗</span>
+            </a>
+
+            <a href="https://github.com/shahroz-afzal29" target="_blank" rel="noopener noreferrer" class="channel-row">
+              <div class="channel-row-left">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>GitHub — shahroz-afzal29</span>
+              </div>
+              <span>↗</span>
+            </a>
+
+            <a href="https://wa.me/923273298665" target="_blank" rel="noopener noreferrer" class="channel-row">
+              <div class="channel-row-left">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <span>0327 3298665 (Call / WhatsApp)</span>
+              </div>
+              <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Working Quick Message Box -->
+      <div class="glass-panel contact-form-card">
+        <div>
+          <h3>Send a Quick Message</h3>
+          <p>Write your message below and send it via Gmail in your browser or your default email app.</p>
+
+          <div class="form-group">
+            <label for="msgName">Your Name / Company</label>
+            <input type="text" id="msgName" class="form-control" placeholder="e.g. Ali / Tech Hiring Team" />
+          </div>
+
+          <div class="form-group">
+            <label for="msgSubject">Subject</label>
+            <input type="text" id="msgSubject" class="form-control" placeholder="e.g. Internship Opportunity" value="Internship / Portfolio Inquiry" />
+          </div>
+
+          <div class="form-group">
+            <label for="msgBody">Message</label>
+            <textarea id="msgBody" class="form-control" placeholder="Hi Shahroz, I saw your portfolio and would love to connect..."></textarea>
+          </div>
+        </div>
+
+        <div class="send-actions">
+          <button type="button" class="btn-gmail" onclick="sendViaGmail()">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            <span>Send via Gmail Web</span>
+          </button>
+          <button type="button" class="btn-mailto" onclick="sendViaMailApp()">
+            Open Mail App
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="site-footer-bar">
+      <div>Shahroz Afzal · BS Computer Science Student at NUML Lahore</div>
+      <div>shahroz-afzal29.github.io</div>
+    </footer>
+  </section>
+
+  <script>
+    // 1. Copy to Clipboard with Toast
+    function copyText(text, msg) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => showToast(msg));
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast(msg);
+      }
+    }
+
+    function showToast(msg) {
+      const banner = document.getElementById('toastBanner');
+      const textEl = document.getElementById('toastText');
+      textEl.textContent = msg;
+      banner.classList.add('visible');
+      setTimeout(() => banner.classList.remove('visible'), 2800);
+    }
+
+    // 2. Working Email Composer (Gmail Web + Mailto fallback)
+    function getComposedDetails() {
+      const name = document.getElementById('msgName').value.trim();
+      const subject = document.getElementById('msgSubject').value.trim() || 'Portfolio Inquiry';
+      const bodyText = document.getElementById('msgBody').value.trim();
+      const fullBody = name ? `From: ${name}\n\n${bodyText}` : bodyText;
+      return {
+        subject: encodeURIComponent(subject),
+        body: encodeURIComponent(fullBody)
+      };
+    }
+
+    function sendViaGmail() {
+      const { subject, body } = getComposedDetails();
+      const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=shahrozafzal60@gmail.com&su=${subject}&body=${body}`;
+      window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+      showToast('Opening Gmail compose tab...');
+    }
+
+    function sendViaMailApp() {
+      const { subject, body } = getComposedDetails();
+      window.location.href = `mailto:shahrozafzal60@gmail.com?subject=${subject}&body=${body}`;
+    }
+
+    // 3. Terminal Tabs & Live Fast Bite Calculator
+    const termTabs = document.querySelectorAll('.term-tab');
+    const termPanes = document.querySelectorAll('.term-pane');
+
+    termTabs.forEach(btn => {
+      btn.addEventListener('click', () => {
+        termTabs.forEach(b => b.classList.remove('active'));
+        termPanes.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const pane = document.getElementById(btn.getAttribute('data-tab'));
+        if (pane) pane.classList.add('active');
+      });
+    });
+
+    function updateSim() {
+      const price = parseFloat(document.getElementById('simItem').value) || 700;
+      const qty = Math.max(1, parseInt(document.getElementById('simQty').value) || 1);
+      const taxRate = parseFloat(document.getElementById('simPay').value) || 0.05;
+      const splitCount = Math.max(1, parseInt(document.getElementById('simSplit').value) || 1);
+
+      const subtotal = price * qty;
+      const tax = subtotal * taxRate;
+      const grandTotal = subtotal + tax;
+      const perPerson = Math.ceil(grandTotal / splitCount);
+
+      document.getElementById('simSummary').innerHTML =
+        `Subtotal: <strong>Rs ${subtotal}</strong> | Tax: <strong>Rs ${tax.toFixed(2)}</strong> | Grand Total: <strong>Rs ${grandTotal.toFixed(2)}</strong> | Per Person (ceil): <strong>Rs ${perPerson}</strong>`;
+    }
+
+    function appendLiveFeedback() {
+      const price = parseFloat(document.getElementById('simItem').value) || 700;
+      const qty = Math.max(1, parseInt(document.getElementById('simQty').value) || 1);
+      const taxRate = parseFloat(document.getElementById('simPay').value) || 0.05;
+      const payLabel = taxRate === 0.05 ? 'Card (5% Tax)' : 'Cash (16% Tax)';
+      const total = (price * qty * (1 + taxRate)).toFixed(2);
+      const rating = document.getElementById('simRating').value;
+      const comment = document.getElementById('simComment').value.trim() || 'Great billing system!';
+      const orderId = '#FB-' + Math.floor(1000 + Math.random() * 9000);
+      const nowStr = new Date().toDateString() + ' ' + new Date().toLocaleTimeString();
+
+      const logPre = document.getElementById('logFilePre');
+      const newEntry = `\nORDER ID  : ${orderId}\nDATE/TIME : ${nowStr}\nPAYMENT   : ${payLabel} | Total: Rs ${total}\nRATING    : ${rating} / 5 Stars\nCOMMENT   : "${comment}"\n==============================================`;
+      logPre.textContent += newEntry;
+
+      // Switch to Tab 2 to show the newly saved log entry
+      termTabs.forEach(b => b.classList.remove('active'));
+      termPanes.forEach(p => p.classList.remove('active'));
+      termTabs[1].classList.add('active');
+      document.getElementById('pane-log').classList.add('active');
+      showToast(`Order ${orderId} saved to feedback_log.txt!`);
+    }
+
+    // 4. Smooth Desktop Cursor Light + 3D Card Tilt & Mobile Touch Ripple
+    const isDesktop = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const cursorLight = document.getElementById('cursorLight');
+    const tiltEls = document.querySelectorAll('.tilt-el');
+
+    if (isDesktop) {
+      window.addEventListener('mousemove', (e) => {
+        cursorLight.style.opacity = '1';
+        cursorLight.style.left = `${e.clientX}px`;
+        cursorLight.style.top = `${e.clientY}px`;
+      }, { passive: true });
+
+      tiltEls.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+          const rect = el.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          el.style.transform = `perspective(1000px) rotateX(${y * -4}deg) rotateY(${x * 4}deg) translateY(-3px)`;
+        });
+        el.addEventListener('mouseleave', () => {
+          el.style.transform = '';
+        });
+      });
+    }
+
+    // Mobile Touch Glow Ripple
+    const rippleLayer = document.getElementById('touchRippleLayer');
+    window.addEventListener('touchstart', (e) => {
+      if (!e.touches || !e.touches[0]) return;
+      const glow = document.createElement('div');
+      glow.className = 'touch-glow';
+      glow.style.left = `${e.touches[0].clientX}px`;
+      glow.style.top = `${e.touches[0].clientY}px`;
+      rippleLayer.appendChild(glow);
+      setTimeout(() => glow.remove(), 850);
+    }, { passive: true });
+  </script>
+</body>
+</html>
