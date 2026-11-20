@@ -5,23 +5,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Shahroz Afzal — Portfolio</title>
-<meta name="description" content="Portfolio of Shahroz Afzal — BS Computer Science student at NUML, Lahore focused on AI prompt workflows, content automation, and clean visual design.">
+<meta name="description" content="Portfolio of Shahroz Afzal — BS Computer Science student at NUML, Lahore working with C++, Java (OOP), and AI prompt design.">
 <meta name="theme-color" content="#111111">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='26' fill='%23FFFFFF'%3ESA%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 /* ==========================================================================
-   EDITORIAL BLACK & WHITE DESIGN SYSTEM — SHAHROZ AFZAL
-   Full-Paged Sections · Human Serif + Sans · Smooth Cursor & GPU Motion
+   EDITORIAL BLACK & WHITE DESIGN SYSTEM (STUDIO EDITION) — SHAHROZ AFZAL
+   Exact Original Theme Preserved · Specular 1px Depth · 60fps Choreographed Motion
    ========================================================================== */
 :root {
   --bg: #FFFFFF;
   --stone: #F3F2EF;
+  --stone-deep: #E8E6E0;
   --alabaster: #EAE5DC;
   --obsidian: #111111;
   --charcoal: #1A1A1D;
@@ -32,22 +33,25 @@
   --line: rgba(17, 17, 17, 0.10);
   --line-strong: rgba(17, 17, 17, 0.20);
   --line-light: rgba(255, 255, 255, 0.14);
-  --line-light-strong: rgba(255, 255, 255, 0.26);
+  --line-light-strong: rgba(255, 255, 255, 0.24);
+  --specular: rgba(255, 255, 255, 0.20);
+  --status-live: #22C55E;
 
   --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --t-press: 130ms;
   --t-state: 260ms;
-  --t-enter: 580ms;
+  --t-enter: 640ms;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
   --r-sm: 12px;
   --r-md: 20px;
   --r-lg: 28px;
   --shadow-sm: 0 4px 20px rgba(17, 17, 17, 0.04);
-  --shadow-md: 0 18px 44px rgba(17, 17, 17, 0.08);
-  --shadow-lg: 0 28px 68px rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 20px 48px rgba(17, 17, 17, 0.09);
+  --shadow-lg: 0 32px 76px rgba(0, 0, 0, 0.28);
 }
 
 *, *::before, *::after {
@@ -67,11 +71,12 @@ body {
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.62;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   min-height: 100dvh;
+  overflow-x: clip;
 }
 
 body.lock-scroll {
@@ -103,6 +108,12 @@ button {
 :focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
+}
+.hero-full-bleed :focus-visible,
+.contact-full-bleed :focus-visible,
+.site-nav :focus-visible,
+dialog.lightbox :focus-visible {
+  outline-color: #FFFFFF;
 }
 
 .skip-link {
@@ -146,7 +157,7 @@ button {
 }
 
 /* ==========================================================================
-   DESKTOP EDITORIAL CURSOR RING + AMBIENT GLOW (Works on Black & White)
+   DESKTOP EDITORIAL CURSOR RING + AMBIENT SPOTLIGHT (60FPS GPU)
    ========================================================================== */
 .cursor-ring,
 .cursor-dot {
@@ -159,7 +170,7 @@ button {
   mix-blend-mode: difference;
   opacity: 0;
   will-change: transform, opacity;
-  transition: opacity 220ms ease, width 220ms var(--ease), height 220ms var(--ease), margin 220ms var(--ease);
+  transition: opacity 220ms ease, width 240ms var(--ease), height 240ms var(--ease), margin 240ms var(--ease), background-color 240ms ease;
 }
 .cursor-ring {
   width: 34px;
@@ -169,10 +180,10 @@ button {
   border: 1.5px solid #FFFFFF;
 }
 .cursor-ring.is-hover {
-  width: 54px;
-  height: 54px;
-  margin-left: -27px;
-  margin-top: -27px;
+  width: 56px;
+  height: 56px;
+  margin-left: -28px;
+  margin-top: -28px;
   background: rgba(255, 255, 255, 0.14);
 }
 .cursor-dot {
@@ -187,12 +198,12 @@ button {
   position: fixed;
   top: 0;
   left: 0;
-  width: 440px;
-  height: 440px;
-  margin-left: -220px;
-  margin-top: -220px;
+  width: 480px;
+  height: 480px;
+  margin-left: -240px;
+  margin-top: -240px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.085) 0%, transparent 66%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.095) 0%, transparent 64%);
   pointer-events: none;
   z-index: 3;
   will-change: transform, opacity;
@@ -225,10 +236,11 @@ button {
   mix-blend-mode: difference;
   transform-origin: left center;
   transform: scaleX(0);
+  will-change: transform;
 }
 
 /* ==========================================================================
-   STICKY EDITORIAL NAVIGATION
+   STICKY EDITORIAL NAVIGATION WITH SLIDING ACTIVE PILL
    ========================================================================== */
 .site-nav {
   position: sticky;
@@ -236,12 +248,24 @@ button {
   z-index: 100;
   min-height: 66px;
   padding-top: env(safe-area-inset-top, 0px);
-  background: rgba(17, 17, 17, 0.94);
+  background: rgba(17, 17, 17, 0.90);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line-light);
   color: #FFFFFF;
+  transition: background-color 260ms var(--ease), box-shadow 260ms var(--ease);
 }
+.site-nav.is-scrolled {
+  background: rgba(12, 12, 14, 0.96);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22);
+}
+@media (pointer: coarse) {
+  .site-nav {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
 .nav-inner {
   min-height: 66px;
   display: flex;
@@ -250,37 +274,81 @@ button {
   gap: 16px;
 }
 .brand-wordmark {
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #FFFFFF;
   min-height: 44px;
   display: inline-flex;
   align-items: center;
+  gap: 10px;
+}
+.brand-monogram {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  background: #FFFFFF;
+  color: var(--obsidian);
+  font-family: var(--font-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  display: grid;
+  place-items: center;
+  transition: transform 280ms var(--ease);
+}
+.brand-wordmark:hover .brand-monogram {
+  transform: rotate(-6deg) scale(1.06);
 }
 
 .nav-links {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
 }
-.nav-links a {
-  min-height: 40px;
+.nav-pill-slider {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, width;
+  transition: transform 320ms var(--ease), width 320ms var(--ease), opacity 220ms ease;
+}
+.nav-links a,
+.nav-link-btn {
+  position: relative;
+  z-index: 2;
+  min-height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
-  font-size: 0.88rem;
-  font-weight: 400;
+  font-size: 0.85rem;
+  font-weight: 500;
   color: rgba(255, 255, 255, 0.68);
   transition: color var(--t-state) var(--ease);
 }
 .nav-links a:hover,
-.nav-links a.is-active {
+.nav-links a.is-active,
+.nav-link-btn:hover {
   color: #FFFFFF;
-  font-weight: 500;
 }
 
+/* Magnetic CTA Buttons + Specular Sheen Sweep */
 .pill-btn {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -290,26 +358,45 @@ button {
   border-radius: 999px;
   font-size: 0.85rem;
   font-weight: 500;
-  transition: transform var(--t-press) var(--ease), background-color var(--t-state) var(--ease), color var(--t-state) var(--ease), border-color var(--t-state) var(--ease);
+  will-change: transform;
+  transition: transform 240ms var(--ease), background-color var(--t-state) var(--ease), color var(--t-state) var(--ease), border-color var(--t-state) var(--ease), box-shadow var(--t-state) var(--ease);
+}
+.pill-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(112deg, transparent 22%, rgba(255, 255, 255, 0.34) 50%, transparent 78%);
+  transform: translateX(-135%);
+  transition: transform 620ms var(--ease);
+  pointer-events: none;
+}
+.pill-btn:hover::after {
+  transform: translateX(135%);
 }
 .pill-btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-1.5px);
 }
 .pill-btn:active {
-  transform: scale(0.98);
+  transform: scale(0.975);
 }
 .pill-obsidian {
   background: var(--obsidian);
   color: #FFFFFF;
   border: 1px solid var(--obsidian);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 .pill-obsidian:hover {
-  background: #27272A;
+  background: #232327;
+  box-shadow: 0 10px 24px rgba(17, 17, 17, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 .pill-white {
   background: #FFFFFF;
   color: var(--ink);
   border: 1px solid #FFFFFF;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.20);
+}
+.pill-white::after {
+  background: linear-gradient(112deg, transparent 22%, rgba(17, 17, 17, 0.10) 50%, transparent 78%);
 }
 .pill-white:hover {
   background: #F3F2EF;
@@ -318,10 +405,22 @@ button {
   background: rgba(255, 255, 255, 0.07);
   color: #FFFFFF;
   border: 1px solid var(--line-light-strong);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 .pill-outline-light:hover {
   background: #FFFFFF;
   color: var(--ink);
+  border-color: #FFFFFF;
+}
+.pill-outline-dark {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+}
+.pill-outline-dark:hover {
+  background: var(--obsidian);
+  color: #FFFFFF;
+  border-color: var(--obsidian);
 }
 
 .mob-menu-btn {
@@ -358,19 +457,25 @@ button {
 .mob-drawer-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
-.mob-drawer-list a {
+.mob-drawer-list a,
+.mob-cv-btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 52px;
+  width: 100%;
+  min-height: 54px;
   padding: 0 18px;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   font-size: 1rem;
   font-weight: 500;
   color: #FFFFFF;
+}
+.mob-cv-btn {
+  background: rgba(255, 255, 255, 0.12);
 }
 
 @media (max-width: 860px) {
@@ -383,25 +488,39 @@ button {
 }
 
 /* ==========================================================================
-   FULL-PAGED SECTION SCAFFOLDING
+   FULL-PAGED SECTION SCAFFOLDING & ARCHITECTURAL ATMOSPHERE
    ========================================================================== */
 .full-page-sec {
   min-height: calc(100dvh - 66px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(3rem, 6vh, 5rem) 0;
+  padding: clamp(3rem, 6.5vh, 5.25rem) 0;
   position: relative;
 }
 
+/* Subtle Architectural Dot Grid for Obsidian Surfaces */
+.dot-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.11) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 72% 68% at 62% 44%, #000 18%, transparent 86%);
+  -webkit-mask-image: radial-gradient(ellipse 72% 68% at 62% 44%, #000 18%, transparent 86%);
+  opacity: 0.42;
+}
+
 /* ==========================================================================
-   01. FULL-BLEED OBSIDIAN HERO — NAME AT TOP + BALANCED SHARP PORTRAIT
+   01. FULL-BLEED OBSIDIAN HERO — CHOREOGRAPHED MASK REVEAL & DEPTH PORTRAIT
    ========================================================================== */
 .hero-full-bleed {
-  background: radial-gradient(circle at 72% 45%, #232327 0%, #111111 58%, #09090B 100%);
+  background: radial-gradient(circle at 72% 42%, #232327 0%, #111111 58%, #09090B 100%);
   color: #FFFFFF;
   border-bottom: 1px solid var(--line-light);
   padding: clamp(2.75rem, 6vh, 4.75rem) 0;
+  overflow: hidden;
 }
 
 .hero-top-meta {
@@ -410,39 +529,55 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: clamp(1.75rem, 3.5vh, 2.75rem);
+  margin-bottom: clamp(1.75rem, 3.8vh, 2.85rem);
 }
 .hero-degree-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   padding: 7px 15px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--line-light-strong);
+  box-shadow: inset 0 1px 0 var(--specular);
   font-size: 0.78rem;
   font-weight: 500;
   color: #F4F4F5;
+  transition: background-color 240ms var(--ease), border-color 240ms var(--ease);
+}
+.hero-degree-badge:hover {
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 .badge-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #FFFFFF;
+  background: var(--status-live);
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.65);
+  animation: livePulse 2.4s var(--ease) infinite;
 }
+@keyframes livePulse {
+  0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.55); }
+  70% { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
 .hero-pills-right {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 .outline-tag {
-  padding: 6px 14px;
+  padding: 6px 13px;
   border-radius: 999px;
   border: 1px solid var(--line-light-strong);
-  font-size: 0.72rem;
+  background: rgba(255, 255, 255, 0.03);
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .hero-main-split {
@@ -461,19 +596,37 @@ button {
 
 .hero-name-top {
   font-family: var(--font-serif);
-  font-size: clamp(3.4rem, 7.4vw, 6.2rem);
+  font-size: clamp(3.5rem, 7.6vw, 6.4rem);
   font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.025em;
+  line-height: 0.94;
+  letter-spacing: -0.028em;
   color: #FFFFFF;
   margin-bottom: 22px;
 }
+.hero-line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.05em;
+}
+.hero-line-inner {
+  display: block;
+}
+html.anim-ready .hero-line-inner {
+  transform: translateY(105%);
+  opacity: 0;
+  transition: transform 780ms var(--ease), opacity 620ms ease;
+  transition-delay: var(--ld, 0ms);
+}
+html.anim-ready .hero-entered .hero-line-inner {
+  transform: translateY(0);
+  opacity: 1;
+}
 
 .hero-intro-2line {
-  font-size: clamp(1rem, 1.25vw, 1.1rem);
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.76);
-  max-width: 42ch;
+  font-size: clamp(1rem, 1.22vw, 1.09rem);
+  line-height: 1.66;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 44ch;
   margin-bottom: 30px;
 }
 
@@ -483,7 +636,43 @@ button {
   gap: 12px;
 }
 
-/* Crisp Portrait Card (Sized to avoid upscaling blur) */
+.hero-scroll-hint {
+  margin-top: clamp(2rem, 4.5vh, 3rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.48);
+  transition: color 240ms ease;
+}
+.hero-scroll-hint:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+.scroll-cue-line {
+  width: 28px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+.scroll-cue-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #FFFFFF;
+  transform: translateX(-100%);
+  animation: cueSlide 2.2s var(--ease) infinite;
+}
+@keyframes cueSlide {
+  0% { transform: translateX(-100%); }
+  60% { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Crisp Portrait Card with Specular 1px Edge + Floating Glass Meta Pill */
 .hero-portrait-col {
   display: flex;
   justify-content: flex-end;
@@ -493,14 +682,28 @@ button {
 .portrait-tall-card {
   position: relative;
   width: 100%;
-  max-width: 356px;
-  aspect-ratio: 1 / 1.04;
+  max-width: 364px;
+  aspect-ratio: 1 / 1.05;
   border-radius: 26px;
   overflow: hidden;
   background: #1C1C1F;
-  border: 1px solid var(--line-light-strong);
-  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.65);
-  transition: transform 260ms var(--ease);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 36px 80px rgba(0, 0, 0, 0.72), inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  transition: transform 280ms var(--ease), border-color 280ms var(--ease);
+  transform-style: preserve-3d;
+}
+.portrait-tall-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 35%), rgba(255, 255, 255, 0.16), transparent 62%);
+  opacity: 0;
+  transition: opacity 260ms ease;
+  pointer-events: none;
+}
+.portrait-tall-card:hover::before {
+  opacity: 1;
 }
 .portrait-tall-card img {
   width: 100%;
@@ -508,6 +711,41 @@ button {
   object-fit: cover;
   object-position: center 14%;
   image-rendering: -webkit-optimize-contrast;
+  transition: transform 700ms var(--ease);
+}
+.portrait-tall-card:hover img {
+  transform: scale(1.03);
+}
+.portrait-float-badge {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 16px;
+  background: rgba(14, 14, 17, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: transform 280ms var(--ease);
+}
+@media (pointer: coarse) {
+  .portrait-float-badge {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+.portrait-float-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: #FFFFFF;
 }
 
 @media (max-width: 860px) {
@@ -519,12 +757,63 @@ button {
     justify-content: flex-start;
   }
   .portrait-tall-card {
-    max-width: 310px;
+    max-width: 318px;
+  }
+  .hero-scroll-hint {
+    display: none;
   }
 }
 
 /* ==========================================================================
-   02. FULL-PAGE SELECTED WORK — STAGGERED WARM-STONE CARDS
+   MINIMAL EDITORIAL CAPABILITY MARQUEE STRIP (Zero Clutter)
+   ========================================================================== */
+.marquee-strip {
+  background: var(--stone);
+  border-bottom: 1px solid var(--line);
+  padding: 13px 0;
+  overflow: hidden;
+  user-select: none;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  animation: marqueeScroll 32s linear infinite;
+  will-change: transform;
+}
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+}
+.marquee-item {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+}
+.marquee-item::after {
+  content: "✦";
+  font-size: 0.65rem;
+  color: var(--muted);
+}
+@keyframes marqueeScroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ==========================================================================
+   02. FULL-PAGE SELECTED WORK — STAGGERED WARM-STONE CARDS + INTERACTIVE LAB
    ========================================================================== */
 .forme-head-block {
   display: flex;
@@ -532,12 +821,25 @@ button {
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  max-width: 820px;
+  max-width: 960px;
   margin: 0 auto clamp(2.25rem, 5vh, 3.5rem);
+}
+.forme-kicker-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.sec-index {
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--muted);
 }
 .forme-h2 {
   font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-size: clamp(2.5rem, 5vw, 3.85rem);
   font-weight: 400;
   line-height: 1.02;
   letter-spacing: -0.025em;
@@ -549,10 +851,10 @@ button {
   gap: 22px;
 }
 .forme-head-note {
-  font-size: 0.9rem;
-  line-height: 1.58;
+  font-size: 0.92rem;
+  line-height: 1.6;
   color: var(--ink-2);
-  max-width: 32ch;
+  max-width: 34ch;
 }
 .forme-diagonal-arrow {
   font-size: 1.6rem;
@@ -568,8 +870,8 @@ button {
 }
 @media (min-width: 900px) {
   .staggered-showcase .gallery-item:nth-child(1) { margin-top: 0; }
-  .staggered-showcase .gallery-item:nth-child(2) { margin-top: 40px; }
-  .staggered-showcase .gallery-item:nth-child(3) { margin-top: 80px; }
+  .staggered-showcase .gallery-item:nth-child(2) { margin-top: 38px; }
+  .staggered-showcase .gallery-item:nth-child(3) { margin-top: 76px; }
 }
 @media (max-width: 899px) {
   .staggered-showcase {
@@ -577,19 +879,42 @@ button {
   }
 }
 
+/* Specular Spotlight-Aware Warm-Stone Cards */
 .gallery-item {
+  position: relative;
   background: var(--stone);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.85);
   border-radius: 22px;
   padding: 14px;
-  transition: transform var(--t-state) var(--ease), box-shadow var(--t-state) var(--ease);
+  transition: transform 280ms var(--ease), box-shadow 280ms var(--ease), border-color 280ms var(--ease);
   min-width: 0;
+  overflow: hidden;
+  will-change: transform;
+}
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.65), transparent 65%);
+  opacity: 0;
+  transition: opacity 260ms ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.gallery-item:hover::before {
+  opacity: 1;
 }
 .gallery-item:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  border-color: rgba(17, 17, 17, 0.18);
+  box-shadow: var(--shadow-md), inset 0 1px 0 #FFFFFF;
 }
 
 .gallery-item-btn {
+  position: relative;
+  z-index: 2;
   width: 100%;
   text-align: left;
   display: block;
@@ -602,15 +927,31 @@ button {
   border-radius: 16px;
   overflow: hidden;
   background: #E7E5DF;
+  border: 1px solid rgba(17, 17, 17, 0.06);
 }
 .gallery-art-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 540ms var(--ease);
+  transition: transform 560ms var(--ease);
 }
 .gallery-item:hover .gallery-art-box img {
-  transform: scale(1.035);
+  transform: scale(1.04);
+}
+.gallery-index-chip {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
 .concave-notch {
@@ -653,12 +994,12 @@ button {
   display: grid;
   place-items: center;
   font-size: 0.92rem;
-  transition: background-color var(--t-state) var(--ease), color var(--t-state) var(--ease), transform var(--t-press) var(--ease);
+  transition: background-color var(--t-state) var(--ease), color var(--t-state) var(--ease), transform 280ms var(--ease);
 }
 .gallery-item:hover .notch-circle-icon {
   background: var(--obsidian);
   color: #FFFFFF;
-  transform: rotate(14deg);
+  transform: rotate(14deg) scale(1.06);
 }
 
 .gallery-caption-bar {
@@ -669,22 +1010,221 @@ button {
   padding: 15px 4px 2px;
 }
 .gallery-project-name {
-  font-size: 0.96rem;
+  font-size: 0.98rem;
   font-weight: 600;
   color: var(--ink);
+  letter-spacing: -0.01em;
 }
 .gallery-project-pill {
-  padding: 4px 12px;
+  padding: 4px 11px;
   border-radius: 999px;
   background: var(--obsidian);
   color: #FFFFFF;
-  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
   font-weight: 500;
   flex-shrink: 0;
 }
+.gallery-card-hint {
+  font-size: 0.81rem;
+  color: var(--muted);
+  padding: 4px 4px 2px;
+  line-height: 1.45;
+}
 
 /* ==========================================================================
-   03. FULL-PAGE EDUCATION & CRAFT (NUML, Lahore + Honest Skills)
+   INTERACTIVE PROMPT LAB — LIVE BEFORE vs. AFTER SWITCHER (Same Theme)
+   ========================================================================== */
+.prompt-lab-card {
+  margin-top: clamp(2.5rem, 6vh, 4rem);
+  background: var(--obsidian);
+  color: #FFFFFF;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  padding: clamp(1.4rem, 3.2vw, 2.4rem);
+  position: relative;
+  overflow: hidden;
+}
+.prompt-lab-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line-light);
+  margin-bottom: 22px;
+}
+.prompt-lab-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #FFFFFF;
+  margin-top: 4px;
+}
+.lab-switch-wrap {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.lab-switch-thumb {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: 999px;
+  background: #FFFFFF;
+  transition: transform 340ms var(--ease);
+  will-change: transform;
+  pointer-events: none;
+}
+.lab-switch-wrap[data-mode="good"] .lab-switch-thumb {
+  transform: translateX(100%);
+}
+.lab-switch-btn {
+  position: relative;
+  z-index: 2;
+  min-height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.74);
+  transition: color 240ms ease;
+  white-space: nowrap;
+}
+.lab-switch-btn.is-selected {
+  color: var(--obsidian);
+}
+
+.prompt-lab-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: clamp(1.25rem, 3vw, 2.25rem);
+  align-items: center;
+}
+.lab-terminal-box {
+  background: #18181B;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.lab-term-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.term-dots {
+  display: inline-flex;
+  gap: 6px;
+}
+.term-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  display: block;
+}
+.lab-mode-tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10);
+  color: #E4E4E7;
+}
+.lab-prompt-text {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: #FFFFFF;
+  min-height: 4.8em;
+  transition: opacity 220ms ease, transform 260ms var(--ease);
+}
+.lab-prompt-note {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.68);
+}
+.lab-param-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.lab-param-chip {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.05);
+  color: #F4F4F5;
+}
+.lab-preview-stage {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #09090B;
+  aspect-ratio: 16 / 10.5;
+  cursor: pointer;
+}
+.lab-preview-stage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 420ms var(--ease), transform 540ms var(--ease);
+}
+.lab-preview-stage img.is-hidden {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+.lab-preview-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(17, 17, 17, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  color: #FFFFFF;
+}
+
+@media (max-width: 860px) {
+  .prompt-lab-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ==========================================================================
+   03. FULL-PAGE EDUCATION & CRAFT + RUNNING BUBBLE-DOT SPINE
    ========================================================================== */
 .edu-sec {
   border-top: 1px solid var(--line);
@@ -692,14 +1232,18 @@ button {
 
 .editorial-bento {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: 24px;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: 26px;
   align-items: stretch;
-  margin-bottom: clamp(2rem, 4vh, 3rem);
+  margin-bottom: clamp(2rem, 4.5vh, 3.25rem);
 }
 
 .alabaster-degree-card {
+  position: relative;
+  overflow: hidden;
   background: var(--alabaster);
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255, 255, 255, 0.65);
   border-radius: 26px;
   padding: clamp(1.75rem, 3.5vw, 2.5rem);
   display: flex;
@@ -707,9 +1251,15 @@ button {
   justify-content: space-between;
   gap: 20px;
   min-width: 0;
+  transition: transform 280ms var(--ease), box-shadow 280ms var(--ease);
+}
+.alabaster-degree-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
 }
 .micro-kicker {
-  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -717,44 +1267,119 @@ button {
 }
 .degree-serif-heading {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-size: clamp(2.1rem, 3.5vw, 2.85rem);
   font-weight: 400;
-  line-height: 1.06;
+  line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin-top: 8px;
 }
 .degree-meta-line {
-  font-size: 0.95rem;
+  font-size: 0.96rem;
+  color: var(--ink-2);
+}
+.degree-course-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 14px;
+}
+.degree-course-pill {
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.06);
+  border: 1px solid rgba(17, 17, 17, 0.10);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   color: var(--ink-2);
 }
 
+/* Animated Vertical Spine with Running Luminous Bubble-Dot */
 .open-certs-column {
   padding: 4px 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 16px;
+  justify-content: center;
+  gap: 14px;
   min-width: 0;
 }
+.timeline-spine-wrap {
+  position: relative;
+  margin-top: 10px;
+  padding-left: 28px;
+}
+.timeline-track {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 7px;
+  width: 2px;
+  background: var(--line-strong);
+  border-radius: 999px;
+  overflow: visible;
+}
+.timeline-orb {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: var(--obsidian);
+  box-shadow: 0 0 0 4px rgba(17, 17, 17, 0.12), 0 0 14px rgba(17, 17, 17, 0.35);
+  animation: spineOrbRun 5.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  will-change: top, transform;
+}
+@keyframes spineOrbRun {
+  0% { top: 0%; transform: scale(0.92); opacity: 0.85; }
+  50% { top: calc(100% - 10px); transform: scale(1.12); opacity: 1; }
+  100% { top: 0%; transform: scale(0.92); opacity: 0.85; }
+}
+
 .hairline-cert-list {
   border-top: 1px solid var(--line-strong);
-  margin-top: 10px;
 }
 .hairline-cert-item {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 15px 0;
+  padding: 15px 10px 15px 6px;
   border-bottom: 1px solid var(--line);
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   font-weight: 500;
   color: var(--ink);
+  transition: background-color 220ms var(--ease), transform 220ms var(--ease);
+}
+.hairline-cert-item::before {
+  content: "";
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--obsidian);
+  transition: transform 240ms var(--ease), background-color 240ms ease;
+}
+.hairline-cert-item:hover {
+  background: rgba(17, 17, 17, 0.025);
+  transform: translateX(3px);
+}
+.hairline-cert-item:hover::before {
+  background: var(--obsidian);
+  transform: scale(1.25);
 }
 .hairline-cert-item span:last-child {
-  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
   color: var(--muted);
+  text-align: right;
+  flex-shrink: 0;
 }
 
 .manifesto-split {
@@ -778,22 +1403,28 @@ button {
   border-bottom: 0;
 }
 .stack-row-label {
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ink);
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 .stack-row-values {
   font-size: 0.92rem;
-  line-height: 1.56;
+  line-height: 1.6;
   color: var(--ink-2);
+  max-width: 56ch;
 }
 
 .obsidian-statement-card {
+  position: relative;
+  overflow: hidden;
   background: var(--obsidian);
   color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.24);
   border-radius: 26px;
   padding: clamp(1.75rem, 3.5vw, 2.5rem);
   display: flex;
@@ -803,20 +1434,22 @@ button {
   min-width: 0;
 }
 .statement-asterisk {
-  font-size: 1.85rem;
+  font-size: 1.9rem;
   line-height: 1;
   color: #FFFFFF;
 }
 .statement-serif-quote {
   font-family: var(--font-serif);
-  font-size: clamp(1.45rem, 2.5vw, 1.95rem);
+  font-size: clamp(1.45rem, 2.5vw, 1.98rem);
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.22;
   color: #FFFFFF;
 }
 .statement-author {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.58);
+  margin-top: 2px;
 }
 
 @media (max-width: 860px) {
@@ -827,7 +1460,7 @@ button {
 }
 
 /* ==========================================================================
-   04. FULL-BLEED OBSIDIAN CONTACT & FOOTER (Full Email Pill + Clean WhatsApp)
+   04. FULL-BLEED OBSIDIAN CONTACT & FOOTER
    ========================================================================== */
 .contact-full-bleed {
   background: radial-gradient(circle at 25% 25%, #202024 0%, #111111 60%, #09090B 100%);
@@ -835,6 +1468,7 @@ button {
   border-top: 1px solid var(--line-light);
   padding: clamp(3rem, 6vh, 5rem) 0 calc(2rem + env(safe-area-inset-bottom, 0px));
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .footer-banner-top {
@@ -882,8 +1516,10 @@ button {
 .contact-pill-card {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--line-light);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
   border-radius: 16px;
   padding: 14px 16px;
+  min-height: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -907,10 +1543,11 @@ button {
   grid-column: 1 / -1;
 }
 
-/* Clean Gmail Message Composer with Subject Field */
+/* Clean Gmail Message Composer with Specular Top Edge */
 .gmail-box {
   background: var(--charcoal);
   border: 1px solid var(--line-light-strong);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.18);
   border-radius: 22px;
   padding: clamp(1.35rem, 3vw, 2rem);
   min-width: 0;
@@ -989,7 +1626,7 @@ button {
 }
 
 /* ==========================================================================
-   IMAGES-FIRST CASE-STUDY MODAL & LIGHTBOX VIEWER
+   IMAGES-FIRST CASE-STUDY MODAL & SWIPEABLE LIGHTBOX VIEWER
    ========================================================================== */
 dialog {
   border: 1px solid var(--line-strong);
@@ -1014,7 +1651,7 @@ dialog[open] {
   animation: modalReveal var(--t-enter) var(--ease);
 }
 @keyframes modalReveal {
-  from { opacity: 0; transform: translateY(14px) scale(0.985); }
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
@@ -1090,7 +1727,7 @@ dialog[open] {
   transition: transform 420ms var(--ease);
 }
 .gallery-btn:hover img {
-  transform: scale(1.025);
+  transform: scale(1.028);
 }
 .gallery-zoom-badge {
   position: absolute;
@@ -1100,7 +1737,8 @@ dialog[open] {
   border-radius: 999px;
   background: rgba(17, 17, 17, 0.88);
   color: #FFFFFF;
-  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
 }
 .gallery-cap {
   font-size: 0.8rem;
@@ -1125,7 +1763,7 @@ dialog[open] {
   font-size: 0.98rem;
   line-height: 1.68;
   color: var(--ink-2);
-  max-width: 68ch;
+  max-width: 64ch;
 }
 
 .case-footer-nav {
@@ -1139,8 +1777,7 @@ dialog[open] {
   border-top: 1px solid var(--line);
 }
 
-
-/* Prompt Design: Side-by-Side Unstructured vs Structured Comparison Boxes */
+/* Prompt Design Comparison Boxes */
 .prompt-compare-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1164,10 +1801,12 @@ dialog[open] {
 .prompt-box--good {
   background: var(--obsidian);
   border: 1px solid #26262A;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
   color: #FFFFFF;
 }
 .prompt-box-kicker {
-  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1187,7 +1826,8 @@ dialog[open] {
 .prompt-box--good .prompt-box-note { color: #A1A1AA; }
 
 .results-kicker {
-  font-size: 0.74rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1195,7 +1835,7 @@ dialog[open] {
   margin-bottom: 10px;
 }
 
-/* Student Master Prompts: Real Full-Structured Master Prompt Cards */
+/* Student Master Prompts Cards */
 .master-prompts-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1213,6 +1853,7 @@ dialog[open] {
 .mp-card--dark {
   background: var(--obsidian);
   border: 1px solid #27272B;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
   color: #FFFFFF;
 }
 .mp-card--light {
@@ -1227,8 +1868,8 @@ dialog[open] {
   gap: 12px;
 }
 .mp-card-kicker {
-  font-family: monospace;
-  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   display: block;
@@ -1243,7 +1884,8 @@ dialog[open] {
   line-height: 1.15;
 }
 .mp-copy-btn {
-  padding: 7px 13px;
+  min-height: 36px;
+  padding: 6px 13px;
   border-radius: 999px;
   font-size: 0.74rem;
   font-weight: 600;
@@ -1269,9 +1911,9 @@ dialog[open] {
   color: #FFFFFF;
 }
 .mp-prompt-pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.77rem;
-  line-height: 1.56;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.58;
   white-space: pre-wrap;
   word-break: break-word;
   padding: 14px 16px;
@@ -1309,7 +1951,6 @@ dialog[open] {
     grid-template-columns: minmax(0, 1fr);
   }
 }
-
 
 /* ==========================================================================
    INTERACTIVE CV MODAL & DOWNLOAD SHEET
@@ -1363,8 +2004,9 @@ dialog[open] {
   margin-bottom: 8px;
 }
 .cv-sec-kicker {
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--muted);
@@ -1391,7 +2033,8 @@ dialog[open] {
   color: var(--ink);
 }
 .cv-entry-date {
-  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
   color: var(--muted);
   font-weight: 500;
 }
@@ -1429,8 +2072,9 @@ dialog[open] {
   padding: 12px 14px;
 }
 .cv-skill-label {
-  font-size: 0.74rem;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ink);
@@ -1447,49 +2091,13 @@ dialog[open] {
   gap: 10px;
   margin-top: 12px;
 }
-.pill-outline-dark {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--line-strong);
-}
-.pill-outline-dark:hover {
-  background: var(--obsidian);
-  color: #FFFFFF;
-  border-color: var(--obsidian);
-}
-.nav-link-btn {
-  min-height: 40px;
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.88rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.68);
-  transition: color var(--t-state) var(--ease);
-}
-.nav-link-btn:hover {
-  color: #FFFFFF;
-  font-weight: 500;
-}
-.mob-cv-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  min-height: 52px;
-  padding: 0 18px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.12);
-  font-size: 1rem;
-  font-weight: 500;
-  color: #FFFFFF;
-}
 @media (max-width: 680px) {
   .cv-skills-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 
-/* Lightbox Viewer */
+/* Lightbox Viewer with Swipe Support */
 dialog.lightbox {
   width: min(1140px, calc(100% - 20px));
   background: var(--obsidian);
@@ -1514,11 +2122,13 @@ dialog.lightbox .dialog-close:hover {
   place-items: center;
   max-height: 68dvh;
   overflow: auto;
+  touch-action: pan-y pinch-zoom;
 }
 .image-stage img {
   max-height: 62dvh;
   width: auto;
   border-radius: 12px;
+  transition: opacity 220ms ease, transform 280ms var(--ease);
 }
 .image-stage.zoomed img {
   max-height: none;
@@ -1550,6 +2160,7 @@ dialog.lightbox .dialog-close:hover {
   color: #FFFFFF;
   font-size: 0.8rem;
   font-weight: 500;
+  transition: background-color 220ms ease, color 220ms ease;
 }
 .image-controls button:hover {
   background: #FFFFFF;
@@ -1557,17 +2168,20 @@ dialog.lightbox .dialog-close:hover {
 }
 
 /* ==========================================================================
-   COORDINATED ENTRANCE & SCROLL REVEAL ANIMATIONS
+   COORDINATED ENTRANCE & SCROLL REVEAL ANIMATIONS (GPU-ONLY)
    ========================================================================== */
 html.anim-ready .rv {
   opacity: 0;
-  transform: translateY(18px);
+  transform: translateY(20px);
   transition: opacity var(--t-enter) var(--ease), transform var(--t-enter) var(--ease);
   transition-delay: var(--d, 0ms);
 }
+html.anim-ready .rv.rv-scale {
+  transform: translateY(16px) scale(0.955);
+}
 html.anim-ready .rv.in {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .toast {
@@ -1578,6 +2192,7 @@ html.anim-ready .rv.in {
   z-index: 600;
   background: var(--obsidian);
   color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 10px 18px;
   border-radius: 999px;
   font-size: 0.84rem;
@@ -1597,10 +2212,12 @@ html.anim-ready .rv.in {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  html.anim-ready .rv {
+  html.anim-ready .rv,
+  html.anim-ready .hero-line-inner {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -1625,16 +2242,20 @@ html.anim-ready .rv.in {
 <!-- MINIMAL EDITORIAL HEADER -->
 <header class="site-nav" id="siteHeader">
   <div class="wrap nav-inner">
-    <a href="#top" class="brand-wordmark">SHAHROZ AFZAL</a>
+    <a href="#top" class="brand-wordmark">
+      <span class="brand-monogram" aria-hidden="true">SA</span>
+      <span>SHAHROZ AFZAL</span>
+    </a>
 
-    <nav class="nav-links" aria-label="Primary">
+    <nav class="nav-links" id="desktopNav" aria-label="Primary">
+      <span class="nav-pill-slider" id="navPillSlider" aria-hidden="true"></span>
       <a href="#work" data-spy="work">Work</a>
       <a href="#education" data-spy="education">Education</a>
       <button type="button" class="nav-link-btn" data-open-cv>CV</button>
       <a href="#contact" data-spy="contact">Contact</a>
     </nav>
 
-    <a href="#contact" class="pill-btn pill-white nav-cta-desktop">Get in Touch</a>
+    <a href="#contact" class="pill-btn pill-white nav-cta-desktop" data-magnetic>Get in Touch</a>
 
     <button type="button" class="mob-menu-btn" id="mobMenuBtn" aria-expanded="false" aria-controls="mobDrawer" aria-label="Open navigation menu">
       <span id="mobMenuLbl">Menu</span>
@@ -1658,6 +2279,7 @@ html.anim-ready .rv.in {
 <main id="main" tabindex="-1">
   <!-- 01. FULL-BLEED OBSIDIAN HERO -->
   <section class="full-page-sec hero-full-bleed" id="top">
+    <div class="dot-atmosphere" aria-hidden="true"></div>
     <div class="wrap">
       <div class="hero-top-meta rv">
         <a href="#work" class="hero-degree-badge">
@@ -1666,42 +2288,90 @@ html.anim-ready .rv.in {
         </a>
 
         <div class="hero-pills-right" aria-hidden="true">
-          <span class="outline-tag">AI Workflows</span>
           <span class="outline-tag">Prompt Design</span>
-          <span class="outline-tag">Visual Design</span>
+          <span class="outline-tag">C++ &amp; Java</span>
+          <span class="outline-tag">GitHub Pages</span>
         </div>
       </div>
 
       <div class="hero-main-split">
-        <div class="hero-left-stack rv" style="--d:70ms">
-          <h1 class="hero-name-top">Shahroz<br>Afzal</h1>
-          <p class="hero-intro-2line">
-            2nd-semester Computer Science student at NUML, Lahore focused on AI prompt workflows, content automation, and clean visual design.
+        <div class="hero-left-stack" id="heroLeftStack">
+          <h1 class="hero-name-top">
+            <span class="hero-line-mask"><span class="hero-line-inner" style="--ld:60ms">Shahroz</span></span>
+            <span class="hero-line-mask"><span class="hero-line-inner" style="--ld:160ms">Afzal</span></span>
+          </h1>
+          <p class="hero-intro-2line rv" style="--d:170ms">
+            2nd-semester Computer Science student at NUML, Lahore. Finished C++ fundamentals, currently learning Java OOP, and building structured prompts with Claude and ChatGPT.
           </p>
-          <div class="hero-cta-group">
-            <a href="#work" class="pill-btn pill-white">
+          <div class="hero-cta-group rv" style="--d:240ms">
+            <a href="#work" class="pill-btn pill-white" data-magnetic>
               <span>Selected Work</span>
               <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
             </a>
-            <button type="button" class="pill-btn pill-outline-light" data-open-cv>View CV</button>
-            <a href="#contact" class="pill-btn pill-outline-light">Get in Touch</a>
+            <button type="button" class="pill-btn pill-outline-light" data-open-cv data-magnetic>View CV</button>
+            <a href="#contact" class="pill-btn pill-outline-light" data-magnetic>Get in Touch</a>
           </div>
+          <a href="#work" class="hero-scroll-hint rv" style="--d:320ms">
+            <span class="scroll-cue-line" aria-hidden="true"></span>
+            <span>Scroll to explore</span>
+          </a>
         </div>
 
-        <div class="hero-portrait-col rv" style="--d:130ms">
+        <div class="hero-portrait-col rv rv-scale" style="--d:160ms">
           <div class="portrait-tall-card" id="heroPortraitFrame">
             <img src="portrait.jpg" id="profileImg" alt="Shahroz Afzal" onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='data:image/webp;base64,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';}">
+            <div class="portrait-float-badge" id="portraitFloatBadge">
+              <div class="portrait-float-left">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span>Lahore, PK</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 02. FULL-PAGE SELECTED WORK — STAGGERED WARM-STONE CARDS -->
+  <!-- EDITORIAL CAPABILITY MARQUEE STRIP -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span class="marquee-item">Prompt Design</span>
+        <span class="marquee-item">Claude &amp; ChatGPT</span>
+        <span class="marquee-item">C++ Fundamentals</span>
+        <span class="marquee-item">Java (OOP)</span>
+        <span class="marquee-item">GitHub Pages</span>
+        <span class="marquee-item">Prompt Design</span>
+        <span class="marquee-item">Claude &amp; ChatGPT</span>
+        <span class="marquee-item">C++ Fundamentals</span>
+        <span class="marquee-item">Java (OOP)</span>
+        <span class="marquee-item">GitHub Pages</span>
+      </div>
+      <div class="marquee-group">
+        <span class="marquee-item">Prompt Design</span>
+        <span class="marquee-item">Claude &amp; ChatGPT</span>
+        <span class="marquee-item">C++ Fundamentals</span>
+        <span class="marquee-item">Java (OOP)</span>
+        <span class="marquee-item">GitHub Pages</span>
+        <span class="marquee-item">Prompt Design</span>
+        <span class="marquee-item">Claude &amp; ChatGPT</span>
+        <span class="marquee-item">C++ Fundamentals</span>
+        <span class="marquee-item">Java (OOP)</span>
+        <span class="marquee-item">GitHub Pages</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02. FULL-PAGE SELECTED WORK — STAGGERED WARM-STONE CARDS + INTERACTIVE PROMPT LAB -->
   <section class="full-page-sec" id="work" data-sec="work">
     <div class="wrap">
       <div class="forme-head-block rv">
-        <h2 class="forme-h2">Built for<br>clarity &amp; speed</h2>
+        <div>
+          <div class="forme-kicker-row">
+            <span class="sec-index">01 / SELECTED WORK</span>
+          </div>
+          <h2 class="forme-h2">Built for<br>clarity &amp; speed</h2>
+        </div>
         <div class="forme-head-meta">
           <p class="forme-head-note">
             Coursework software projects, structured AI prompt comparisons, and student master prompt templates.
@@ -1711,44 +2381,95 @@ html.anim-ready .rv.in {
       </div>
 
       <div class="staggered-showcase" id="staggeredGrid"></div>
+
+      <!-- INTERACTIVE BEFORE vs. AFTER PROMPT SWITCHER -->
+      <div class="prompt-lab-card rv" style="--d:120ms" id="promptLabCard">
+        <div class="prompt-lab-head">
+          <div>
+            <span class="micro-kicker" style="color:rgba(255,255,255,0.58)">Interactive Prompt Lab · Live Comparison</span>
+            <h3 class="prompt-lab-title">See how structure changes the output</h3>
+          </div>
+          <div class="lab-switch-wrap" id="labSwitchWrap" data-mode="good" role="tablist" aria-label="Compare unstructured and structured prompts">
+            <span class="lab-switch-thumb" aria-hidden="true"></span>
+            <button type="button" class="lab-switch-btn" id="labBtnBad" role="tab" aria-selected="false" data-lab-mode="bad">Raw Prompt</button>
+            <button type="button" class="lab-switch-btn is-selected" id="labBtnGood" role="tab" aria-selected="true" data-lab-mode="good">Structured Prompt</button>
+          </div>
+        </div>
+
+        <div class="prompt-lab-grid">
+          <div class="lab-terminal-box">
+            <div class="lab-term-bar">
+              <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="lab-mode-tag" id="labModeTag">STRUCTURED PROMPT</span>
+            </div>
+            <p class="lab-prompt-text" id="labPromptText">“Wide angle street shot at night, wet road reflecting warm streetlights, 85mm lens, realistic shadows, photorealistic, no text.”</p>
+            <p class="lab-prompt-note" id="labPromptNote">Controlled framing, wet-surface reflections, warm lighting balance, and strict negative rules.</p>
+            <div class="lab-param-chips" id="labParamChips">
+              <span class="lab-param-chip">Lens: 85mm</span>
+              <span class="lab-param-chip">Lighting: Warm Streetlights</span>
+              <span class="lab-param-chip">Surface: Wet Reflections</span>
+              <span class="lab-param-chip">Constraint: No Text</span>
+            </div>
+          </div>
+
+          <button type="button" class="lab-preview-stage" id="labPreviewOpenBtn" aria-label="Open Prompt Design case study">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1'%20height='1'/%3E" id="labImgBad" class="is-hidden" alt="Result from raw unstructured prompt">
+            <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1'%20height='1'/%3E" id="labImgGood" alt="Result from engineered structured prompt">
+            <div class="lab-preview-badge">
+              <span id="labPreviewLabel">Output 02 · Structured Result</span>
+              <span>Open Full Comparison ↗</span>
+            </div>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 03. FULL-PAGE EDUCATION & CRAFT (NUML, Lahore + Honest Skills) -->
+  <!-- 03. FULL-PAGE EDUCATION & CRAFT (NUML, Lahore + Animated Spine Timeline) -->
   <section class="full-page-sec edu-sec" id="education" data-sec="education">
     <div class="wrap">
       <div class="editorial-bento">
         <div class="alabaster-degree-card rv">
           <div>
-            <span class="micro-kicker">Education · 2026 – Present</span>
+            <span class="micro-kicker">02 / Education · 2026 – Present</span>
             <h2 class="degree-serif-heading">NUML, Lahore</h2>
             <p class="degree-meta-line" style="margin-top:8px">BS Computer Science · 2nd Semester</p>
+            <div class="degree-course-pills" aria-label="Core Coursework">
+              <span class="degree-course-pill">Programming Fundamentals (C++)</span>
+              <span class="degree-course-pill">Java OOP (Learning)</span>
+              <span class="degree-course-pill">Discrete Structures</span>
+            </div>
           </div>
           <div class="cv-actions-row">
-            <button type="button" class="pill-btn pill-obsidian" data-open-cv>View Full CV</button>
-            <button type="button" class="pill-btn pill-outline-dark" data-download-cv>Download CV (PDF) ↓</button>
+            <button type="button" class="pill-btn pill-obsidian" data-open-cv data-magnetic>View Full CV</button>
+            <button type="button" class="pill-btn pill-outline-dark" data-download-cv data-magnetic>Download CV (PDF) ↓</button>
           </div>
         </div>
 
-        <div class="open-certs-column rv" style="--d:70ms">
+        <div class="open-certs-column rv" style="--d:80ms">
           <div>
-            <span class="micro-kicker">Courses &amp; Certificates</span>
-            <div class="hairline-cert-list">
-              <div class="hairline-cert-item">
-                <span>Learn Claude AI in 30 Days</span>
-                <span>Innovista Learn Easy · Oct 2026</span>
+            <span class="micro-kicker">Courses &amp; Certificates Timeline</span>
+            <div class="timeline-spine-wrap">
+              <div class="timeline-track" aria-hidden="true">
+                <span class="timeline-orb"></span>
               </div>
-              <div class="hairline-cert-item">
-                <span>Foundations: Data, Data, Everywhere</span>
-                <span>Google / Coursera · Oct 2026</span>
-              </div>
-              <div class="hairline-cert-item">
-                <span>Graphic Designing Course</span>
-                <span>Visual Design</span>
-              </div>
-              <div class="hairline-cert-item">
-                <span>YouTube / Facebook Automation Course</span>
-                <span>Digital Workflows</span>
+              <div class="hairline-cert-list">
+                <div class="hairline-cert-item">
+                  <span>Learn Claude AI in 30 Days</span>
+                  <span>Innovista Learn Easy · Oct 2026</span>
+                </div>
+                <div class="hairline-cert-item">
+                  <span>Foundations: Data, Data, Everywhere</span>
+                  <span>Google / Coursera · Oct 2026</span>
+                </div>
+                <div class="hairline-cert-item">
+                  <span>Graphic Designing Course</span>
+                  <span>Visual Design</span>
+                </div>
+                <div class="hairline-cert-item">
+                  <span>YouTube / Facebook Automation Course</span>
+                  <span>Digital Workflows</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1758,26 +2479,27 @@ html.anim-ready .rv.in {
       <div class="manifesto-split">
         <div class="open-stack-list rv" style="--d:110ms">
           <div class="stack-row-clean">
-            <div class="stack-row-label">Programming Basics (Coursework)</div>
-            <p class="stack-row-values">Foundational Programming Fundamentals (C++) and Java Object-Oriented Programming basics as part of university studies.</p>
+            <div class="stack-row-label">AI &amp; Prompting</div>
+            <p class="stack-row-values">Claude, ChatGPT, prompt design, system instructions, and output evaluation for topic research and short video scripts.</p>
           </div>
           <div class="stack-row-clean">
-            <div class="stack-row-label">AI Prompt Design &amp; Automation</div>
-            <p class="stack-row-values">Structured prompting across Claude, ChatGPT, Gemini, Veo AI video, and social content automation.</p>
+            <div class="stack-row-label">Programming (Coursework)</div>
+            <p class="stack-row-values">Completed Programming Fundamentals in C++ and currently learning Object-Oriented Programming (OOP) in Java.</p>
           </div>
           <div class="stack-row-clean">
-            <div class="stack-row-label">Graphic Design &amp; Communication</div>
-            <p class="stack-row-values">Clean presentation slides, social posts, and fast adaptation to new tools.</p>
+            <div class="stack-row-label">Tools &amp; Languages</div>
+            <p class="stack-row-values">GitHub, GitHub Pages, Shopify admin (product listings and order tracking), plus English and Urdu.</p>
           </div>
         </div>
 
         <div class="obsidian-statement-card rv" style="--d:160ms">
-          <div class="statement-asterisk" aria-hidden="true">*</div>
-          <p class="statement-serif-quote">
+          <div class="dot-atmosphere" aria-hidden="true" style="opacity:0.25"></div>
+          <div class="statement-asterisk" aria-hidden="true" style="position:relative;z-index:2">*</div>
+          <p class="statement-serif-quote" style="position:relative;z-index:2">
             “Clear structure turns unpredictable AI outputs and raw code into reliable tools people can actually use.”
           </p>
-          <div>
-            <div style="font-size:0.86rem;font-weight:500;color:#FFFFFF">Shahroz Afzal</div>
+          <div style="position:relative;z-index:2">
+            <div style="font-size:0.88rem;font-weight:500;color:#FFFFFF">Shahroz Afzal</div>
             <div class="statement-author">BS Computer Science · NUML, Lahore</div>
           </div>
         </div>
@@ -1787,14 +2509,18 @@ html.anim-ready .rv.in {
 
   <!-- 04. FULL-BLEED OBSIDIAN CONTACT & FOOTER -->
   <section class="full-page-sec contact-full-bleed" id="contact" data-sec="contact">
+    <div class="dot-atmosphere" aria-hidden="true" style="opacity:0.32"></div>
     <div class="wrap" style="margin-block:auto">
       <div class="footer-banner-top rv">
-        <h2 class="giant-serif-connect">let’s connect.</h2>
+        <div>
+          <span class="micro-kicker" style="color:rgba(255,255,255,0.52);display:block;margin-bottom:8px">03 / Contact</span>
+          <h2 class="giant-serif-connect">let’s connect.</h2>
+        </div>
       </div>
 
       <div class="footer-main-grid">
         <div class="footer-left-col rv" style="--d:70ms">
-          <p style="font-size:0.96rem;color:rgba(255,255,255,0.8)">
+          <p style="font-size:0.96rem;color:rgba(255,255,255,0.8);max-width:44ch">
             Reach out directly via Gmail, LinkedIn, GitHub, or WhatsApp.
           </p>
 
@@ -1804,8 +2530,8 @@ html.anim-ready .rv.in {
               <span>↗</span>
             </a>
             <button type="button" class="contact-pill-card" id="copyEmailBtn">
-              <span>Copy Email</span>
-              <span>+</span>
+              <span id="copyEmailLabel">Copy Email</span>
+              <span id="copyEmailIcon">+</span>
             </button>
             <a href="https://wa.me/923273298665" class="contact-pill-card" target="_blank" rel="noopener noreferrer">
               <span>WhatsApp</span>
@@ -1843,11 +2569,11 @@ html.anim-ready .rv.in {
             </div>
 
             <div class="gmail-actions">
-              <button type="submit" class="pill-btn pill-white">
+              <button type="submit" class="pill-btn pill-white" data-magnetic>
                 <span>Send via Gmail</span>
                 <span>↗</span>
               </button>
-              <button type="button" class="pill-btn pill-outline-light" id="mailAppBtn">Mail App</button>
+              <button type="button" class="pill-btn pill-outline-light" id="mailAppBtn" data-magnetic>Mail App</button>
             </div>
           </form>
         </div>
@@ -1866,7 +2592,7 @@ html.anim-ready .rv.in {
 <!-- IMAGES-FIRST CASE-STUDY MODAL -->
 <dialog id="caseDialog" aria-labelledby="caseDialogTitle">
   <div class="dialog-bar">
-    <span style="font-size:0.82rem;color:var(--muted)" id="caseBarLabel">Project Preview</span>
+    <span style="font-family:var(--font-mono);font-size:0.76rem;color:var(--muted)" id="caseBarLabel">Project Preview</span>
     <button type="button" class="dialog-close" id="closeCaseBtn">
       <span>Back to portfolio</span>
       <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -1875,10 +2601,10 @@ html.anim-ready .rv.in {
   <div class="case-body" id="caseDialogBody"></div>
 </dialog>
 
-<!-- FULL-SCREEN IMAGE LIGHTBOX -->
+<!-- FULL-SCREEN IMAGE LIGHTBOX (Swipe + Keyboard + Zoom) -->
 <dialog id="viewerDialog" class="lightbox" aria-labelledby="viewerCaption">
   <div class="dialog-bar">
-    <span style="font-size:0.82rem;color:rgba(255,255,255,0.75)">Preview Viewer</span>
+    <span style="font-family:var(--font-mono);font-size:0.76rem;color:rgba(255,255,255,0.75)">Preview Viewer · Swipe or Arrow Keys</span>
     <button type="button" class="dialog-close" id="closeViewerBtn">
       <span>Return</span>
       <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -1891,18 +2617,17 @@ html.anim-ready .rv.in {
     <p id="viewerCaption" style="color:#E5E5E5"></p>
     <div class="image-controls">
       <button type="button" id="viewerPrevBtn" aria-label="Previous image">← Prev</button>
-      <output id="viewerCounter" aria-live="polite" style="color:#FFFFFF;padding:0 6px;font-size:0.8rem"></output>
+      <output id="viewerCounter" aria-live="polite" style="color:#FFFFFF;padding:0 6px;font-family:var(--font-mono);font-size:0.78rem"></output>
       <button type="button" id="viewerNextBtn" aria-label="Next image">Next →</button>
       <button type="button" id="viewerZoomBtn" aria-pressed="false">Zoom in</button>
     </div>
   </div>
 </dialog>
 
-
-<!-- INTERACTIVE CV MODAL (Updated without Seeking Line) -->
+<!-- INTERACTIVE CV MODAL -->
 <dialog id="cvDialog" aria-labelledby="cvDialogTitle">
   <div class="dialog-bar">
-    <span style="font-size:0.82rem;color:var(--muted)">Curriculum Vitae · Shahroz Afzal</span>
+    <span style="font-family:var(--font-mono);font-size:0.76rem;color:var(--muted)">Curriculum Vitae · Shahroz Afzal</span>
     <div style="display:flex;align-items:center;gap:8px">
       <button type="button" class="pill-btn pill-obsidian" data-download-cv style="min-height:38px;padding:0 16px;font-size:0.8rem">Download PDF ↓</button>
       <button type="button" class="dialog-close" id="closeCvBtn">
@@ -2036,14 +2761,14 @@ html.anim-ready .rv.in {
   }
 
   /* ==========================================================================
-     VISUAL PREVIEWS — 4 IMAGES FOR FAST BITE, 2 REAL COMPARISON IMAGES FOR
-     PROMPT DESIGN, AND 4 STUDENT MASTER PROMPTS ON TOP FOR PROJECT 3
+     VISUAL PREVIEWS — ALL EMBEDDED ASSETS PRESERVED INTACT
      ========================================================================== */
   const PREVIEWS = {
     fb_1_menu: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 680">
       <rect width="1100" height="680" fill="#111111"/>
       <rect x="56" y="46" width="988" height="588" rx="20" fill="#18181B" stroke="#2E2E32"/>
-      <text x="96" y="92" fill="#A1A1AA" font-family="monospace" font-size="13">01 / 04 · MENU &amp; ORDER ENTRY (./fast_bite_biller)</text>
+      <circle cx="92" cy="84" r="6" fill="#3F3F46"/><circle cx="114" cy="84" r="6" fill="#3F3F46"/><circle cx="136" cy="84" r="6" fill="#3F3F46"/>
+      <text x="164" y="89" fill="#A1A1AA" font-family="monospace" font-size="13">01 / 04 · MENU &amp; ORDER ENTRY (./fast_bite_biller)</text>
       <line x1="56" y1="114" x2="1044" y2="114" stroke="#2E2E32"/>
       <text x="96" y="162" fill="#FFFFFF" font-family="monospace" font-weight="700" font-size="18">WELCOME TO FAST BITE RESTAURANT</text>
       <text x="96" y="198" fill="#D4D4D8" font-family="monospace" font-size="15">Select Order Type: [1] Dine-In   [2] Takeaway  →  1</text>
@@ -2144,65 +2869,19 @@ html.anim-ready .rv.in {
       <text x="594" y="484" fill="#FFFFFF" font-family="Georgia,serif" font-size="22">Debugging &amp; Logic Coach</text>
       <text x="594" y="518" fill="#D4D4D8" font-family="monospace" font-size="13">ROOT CAUSE + MINIMAL FIX</text>
       <text x="594" y="546" fill="#A1A1AA" font-family="monospace" font-size="12">Line isolation · Edge-case tests</text>
-    </svg>`),
-
-    mp_2_research: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 680">
-      <rect width="1100" height="680" fill="#F3F2EF"/>
-      <rect x="56" y="46" width="988" height="588" rx="22" fill="#FFFFFF" stroke="#D6D3CD"/>
-      <text x="96" y="96" fill="#78716C" font-family="monospace" font-size="13">MASTER PROMPT 02 · STRUCTURED TOPIC RESEARCH</text>
-      <text x="96" y="148" fill="#111111" font-family="Georgia,serif" font-size="34">Deep Academic &amp; Technical Research Brief</text>
-      <line x1="96" y1="176" x2="1004" y2="176" stroke="#E4E2DC"/>
-      <text x="96" y="224" fill="#111111" font-family="system-ui,sans-serif" font-weight="600" font-size="17">“Research [TOPIC] for a university report and organize into:</text>
-      <text x="96" y="262" fill="#44403C" font-family="system-ui,sans-serif" font-size="16">1. Core definition and historical background (4 lines max).</text>
-      <text x="96" y="298" fill="#44403C" font-family="system-ui,sans-serif" font-size="16">2. Three primary mechanisms or approaches compared side-by-side.</text>
-      <text x="96" y="334" fill="#44403C" font-family="system-ui,sans-serif" font-size="16">3. Current limitations, ethical tradeoffs, and open problems.</text>
-      <text x="96" y="378" fill="#78716C" font-family="system-ui,sans-serif" font-size="15">Avoid filler introductions. Flag uncertain claims clearly.”</text>
-      <rect x="96" y="440" width="908" height="130" rx="14" fill="#F8F7F4" stroke="#E4E2DC"/>
-      <text x="126" y="486" fill="#111111" font-family="system-ui,sans-serif" font-weight="600" font-size="15">Why it works for students:</text>
-      <text x="126" y="518" fill="#57534E" font-family="system-ui,sans-serif" font-size="14">Eliminates generic essay fluff and forces balanced comparisons, tradeoffs, and verifiable facts.</text>
-    </svg>`),
-
-    mp_3_slides: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 680">
-      <rect width="1100" height="680" fill="#F3F2EF"/>
-      <rect x="56" y="46" width="988" height="588" rx="22" fill="#FFFFFF" stroke="#D6D3CD"/>
-      <text x="96" y="96" fill="#78716C" font-family="monospace" font-size="13">MASTER PROMPT 03 · PRESENTATION SLIDES ARCHITECT</text>
-      <text x="96" y="148" fill="#111111" font-family="Georgia,serif" font-size="34">Clean Slide-by-Slide Deck Outline</text>
-      <line x1="96" y1="176" x2="1004" y2="176" stroke="#E4E2DC"/>
-      <text x="96" y="224" fill="#111111" font-family="system-ui,sans-serif" font-weight="600" font-size="17">“Convert these notes into an 8-slide presentation outline:</text>
-      <text x="96" y="262" fill="#44403C" font-family="system-ui,sans-serif" font-size="16">• One clear takeaway headline per slide (max 8 words).</text>
-      <text x="96" y="298" fill="#44403C" font-family="system-ui,sans-serif" font-size="16">• Maximum 3 short bullets per slide (under 12 words each).</text>
-      <text x="96" y="334" fill="#44403C" font-family="system-ui,sans-serif" font-size="16">• Suggest one clean visual diagram or chart per slide.</text>
-      <text x="96" y="378" fill="#78716C" font-family="system-ui,sans-serif" font-size="15">Write brief speaker notes underneath without walls of text.”</text>
-      <rect x="96" y="440" width="908" height="130" rx="14" fill="#F8F7F4" stroke="#E4E2DC"/>
-      <text x="126" y="486" fill="#111111" font-family="system-ui,sans-serif" font-weight="600" font-size="15">Why it works for students:</text>
-      <text x="126" y="518" fill="#57534E" font-family="system-ui,sans-serif" font-size="14">Prevents overcrowded slides by enforcing strict word caps and pairing every point with a visual cue.</text>
-    </svg>`),
-
-    mp_4_debug: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 680">
-      <rect width="1100" height="680" fill="#111111"/>
-      <rect x="56" y="46" width="988" height="588" rx="22" fill="#18181B" stroke="#2E2E32"/>
-      <text x="96" y="96" fill="#A1A1AA" font-family="monospace" font-size="13">MASTER PROMPT 04 · CODE DEBUGGING &amp; LOGIC MENTOR</text>
-      <text x="96" y="148" fill="#FFFFFF" font-family="Georgia,serif" font-size="34">Step-by-Step Code Review Without Shortcuts</text>
-      <line x1="96" y1="176" x2="1004" y2="176" stroke="#2E2E32"/>
-      <text x="96" y="224" fill="#F4F4F5" font-family="system-ui,sans-serif" font-weight="600" font-size="17">“Review my [Java / C++] code below and respond in 3 parts:</text>
-      <text x="96" y="262" fill="#D4D4D8" font-family="system-ui,sans-serif" font-size="16">1. Identify the exact line causing the logic or runtime bug.</text>
-      <text x="96" y="298" fill="#D4D4D8" font-family="system-ui,sans-serif" font-size="16">2. Explain why it fails in simple terms so I learn the concept.</text>
-      <text x="96" y="334" fill="#D4D4D8" font-family="system-ui,sans-serif" font-size="16">3. Show the corrected, modular code with brief comments.</text>
-      <text x="96" y="378" fill="#A1A1AA" font-family="system-ui,sans-serif" font-size="15">Do not rewrite unrelated functions or use advanced libraries.”</text>
-      <rect x="96" y="440" width="908" height="130" rx="14" fill="#222226"/>
-      <text x="126" y="486" fill="#FFFFFF" font-family="system-ui,sans-serif" font-weight="600" font-size="15">Why it works for students:</text>
-      <text x="126" y="518" fill="#A1A1AA" font-family="system-ui,sans-serif" font-size="14">Teaches the root cause behind basic programming bugs instead of dumping unexplained code.</text>
     </svg>`)
   };
 
   /* ==========================================================================
-     PROJECTS DATA — IMAGES FIRST + SHORT 4-5 LINE EXPLANATION AT THE END
+     PROJECTS DATA
      ========================================================================== */
   const PROJECTS = [
     {
       id: "fastbite",
+      index: "01",
       title: "Fast Bite Billing",
       tag: "C++",
+      hint: "Duplicate order guard, tax automation & persistent logs.",
       heroArt: "fb_1_menu",
       summary: "I built Fast Bite Billing in my first semester to solve slow manual restaurant checkouts, accidental duplicate item orders, and messy group bill splitting. The C++ console system validates active orders to merge duplicate items, automatically computes 16% Cash or 5% Card tax, splits totals evenly using ceil(), and saves customer ratings with timestamps into feedback_log.txt via <fstream> and <ctime>.",
       gallery: [
@@ -2214,8 +2893,10 @@ html.anim-ready .rv.in {
     },
     {
       id: "prompting",
+      index: "02",
       title: "Prompt Design",
-      tag: "AI Workflows",
+      tag: "Prompt Design",
+      hint: "Controlled framing, lens lighting & strict negative rules.",
       heroArt: "prompt_good",
       comparison: {
         badKicker: "Unstructured / Bad Prompt",
@@ -2225,7 +2906,7 @@ html.anim-ready .rv.in {
         goodQuote: "“Wide angle street shot at night, wet road reflecting warm streetlights, 85mm lens, realistic shadows, photorealistic, no text.”",
         goodNote: "Controlled framing, wet-surface reflections, warm lighting balance, and strict negative rules."
       },
-      summary: "I created this structured prompting workflow after seeing how vague one-line prompts produce generic, unpredictable visuals. By specifying camera lens, lighting, surface reflections, composition, and negative rules (no text), AI models like Claude, ChatGPT, Gemini, and Veo generate consistent, production-ready visuals instead of random guesses.",
+      summary: "I put together this comparison to show how vague one-line prompts produce generic, unpredictable visuals. By specifying camera lens, lighting, surface reflections, composition, and negative rules (no text), AI image tools generate much more consistent and controlled results.",
       gallery: [
         { key: "prompt_bad", label: "Result 01 · Unstructured / Bad Prompt Output" },
         { key: "prompt_good", label: "Result 02 · Structured / Good Prompt Output" }
@@ -2233,10 +2914,12 @@ html.anim-ready .rv.in {
     },
     {
       id: "master-prompts",
+      index: "03",
       title: "Student Master Prompts",
       tag: "Prompt Library",
+      hint: "4 copy-ready role & constraint frameworks for students.",
       heroArt: "mp_1_exam",
-      summary: "I designed these four full-length master prompts to help university students move past shallow one-line AI queries. Each prompt defines an expert role, required input variables, a multi-phase execution protocol, and strict anti-fluff constraints—turning any LLM into a reliable exam tutor, research analyst, slide architect, or debugging mentor.",
+      summary: "I designed these four full-length master prompts to help university students move past shallow one-line AI queries. Each prompt defines an expert role, required input variables, a multi-phase execution protocol, and strict anti-fluff constraints—turning Claude or ChatGPT into a reliable exam tutor, research analyst, slide architect, or debugging mentor.",
       masterPrompts: [
         {
           kicker: "Master Prompt 01 · Exam Study",
@@ -2344,9 +3027,73 @@ STRICT CONSTRAINTS:
 
   const $ = function (id) { return document.getElementById(id); };
   const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isFinePointer = window.matchMedia && window.matchMedia("(pointer: fine)").matches;
 
   /* ==========================================================================
-     TOAST & CLIPBOARD WITH FALLBACK
+     CHOREOGRAPHED HERO ENTRANCE
+     ========================================================================== */
+  requestAnimationFrame(function () {
+    const heroLeft = $("heroLeftStack");
+    if (heroLeft) heroLeft.classList.add("hero-entered");
+  });
+
+  /* ==========================================================================
+     INTERACTIVE PROMPT LAB SWITCHER
+     ========================================================================== */
+  const LAB_STATES = {
+    bad: {
+      tag: "RAW ONE-LINE PROMPT",
+      text: "“Make a picture of a futuristic city.”",
+      note: "Generic neon clutter with no camera angle, lens choice, lighting control, or realism constraints.",
+      chips: ["No Lens Spec", "No Lighting Direction", "No Surface Physics", "No Negative Rules"],
+      label: "Output 01 · Unstructured Result"
+    },
+    good: {
+      tag: "STRUCTURED PROMPT",
+      text: "“Wide angle street shot at night, wet road reflecting warm streetlights, 85mm lens, realistic shadows, photorealistic, no text.”",
+      note: "Controlled framing, wet-surface reflections, warm lighting balance, and strict negative rules.",
+      chips: ["Lens: 85mm", "Lighting: Warm Streetlights", "Surface: Wet Reflections", "Constraint: No Text"],
+      label: "Output 02 · Structured Result"
+    }
+  };
+
+  $("labImgBad").src = PREVIEWS.prompt_bad;
+  $("labImgGood").src = PREVIEWS.prompt_good;
+
+  function setLabMode(mode) {
+    const st = LAB_STATES[mode];
+    if (!st) return;
+    const wrap = $("labSwitchWrap");
+    wrap.setAttribute("data-mode", mode);
+    $("labBtnBad").classList.toggle("is-selected", mode === "bad");
+    $("labBtnGood").classList.toggle("is-selected", mode === "good");
+    $("labBtnBad").setAttribute("aria-selected", String(mode === "bad"));
+    $("labBtnGood").setAttribute("aria-selected", String(mode === "good"));
+
+    $("labModeTag").textContent = st.tag;
+    $("labPromptText").textContent = st.text;
+    $("labPromptNote").textContent = st.note;
+    $("labParamChips").innerHTML = st.chips.map(function (c) {
+      return '<span class="lab-param-chip">' + c + '</span>';
+    }).join("");
+    $("labPreviewLabel").textContent = st.label;
+
+    $("labImgBad").classList.toggle("is-hidden", mode !== "bad");
+    $("labImgGood").classList.toggle("is-hidden", mode !== "good");
+  }
+
+  document.querySelectorAll("[data-lab-mode]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      setLabMode(btn.getAttribute("data-lab-mode"));
+    });
+  });
+
+  $("labPreviewOpenBtn").addEventListener("click", function () {
+    openCaseStudy("prompting", this, null);
+  });
+
+  /* ==========================================================================
+     TOAST & CLIPBOARD WITH BUTTON MICRO-FEEDBACK
      ========================================================================== */
   const toastEl = $("toast");
   let toastTimer = null;
@@ -2360,19 +3107,20 @@ STRICT CONSTRAINTS:
     }, 2500);
   }
 
-  function copyWithFallback(text, successMsg) {
+  function copyWithFallback(text, successMsg, onSuccess) {
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(text).then(function () {
         showToast(successMsg);
+        if (onSuccess) onSuccess();
       }).catch(function () {
-        legacyCopy(text, successMsg);
+        legacyCopy(text, successMsg, onSuccess);
       });
     } else {
-      legacyCopy(text, successMsg);
+      legacyCopy(text, successMsg, onSuccess);
     }
   }
 
-  function legacyCopy(text, successMsg) {
+  function legacyCopy(text, successMsg, onSuccess) {
     try {
       const ta = document.createElement("textarea");
       ta.value = text;
@@ -2384,17 +3132,27 @@ STRICT CONSTRAINTS:
       const ok = document.execCommand("copy");
       document.body.removeChild(ta);
       showToast(ok ? successMsg : "Copy unavailable — select text manually.");
+      if (ok && onSuccess) onSuccess();
     } catch (err) {
       showToast("Copy unavailable — select text manually.");
     }
   }
 
   $("copyEmailBtn").addEventListener("click", function () {
-    copyWithFallback(PROFILE.email, "Copied: " + PROFILE.email);
+    const lbl = $("copyEmailLabel");
+    const ico = $("copyEmailIcon");
+    copyWithFallback(PROFILE.email, "Copied: " + PROFILE.email, function () {
+      lbl.textContent = "Copied!";
+      ico.textContent = "✓";
+      setTimeout(function () {
+        lbl.textContent = "Copy Email";
+        ico.textContent = "+";
+      }, 1800);
+    });
   });
 
   /* ==========================================================================
-     STAGGERED SHOWCASE CARDS + IMAGES-FIRST CASE STUDY MODAL + LIGHTBOX
+     STAGGERED SHOWCASE CARDS + 3D TILT + SPOTLIGHT + CASE MODAL + LIGHTBOX
      ========================================================================== */
   const staggeredGrid = $("staggeredGrid");
   const caseDialog = $("caseDialog");
@@ -2408,9 +3166,10 @@ STRICT CONSTRAINTS:
 
   function renderShowcaseCards() {
     staggeredGrid.innerHTML = PROJECTS.map(function (p, idx) {
-      return '<article class="gallery-item rv" style="--d:' + (idx * 80) + 'ms">' +
+      return '<article class="gallery-item rv" style="--d:' + (idx * 90) + 'ms">' +
         '<button type="button" class="gallery-item-btn" data-open-case="' + p.id + '" aria-label="Open ' + p.title + '">' +
           '<div class="gallery-art-box">' +
+            '<span class="gallery-index-chip" aria-hidden="true">' + p.index + '</span>' +
             '<img src="' + PREVIEWS[p.heroArt] + '" alt="' + p.title + '">' +
             '<span class="concave-notch" aria-hidden="true">' +
               '<span class="notch-circle-icon">↗</span>' +
@@ -2420,18 +3179,23 @@ STRICT CONSTRAINTS:
             '<h3 class="gallery-project-name">' + p.title + '</h3>' +
             '<span class="gallery-project-pill">' + p.tag + '</span>' +
           '</div>' +
+          '<p class="gallery-card-hint">' + p.hint + '</p>' +
         '</button>' +
       '</article>';
     }).join("");
 
-    /* 3D Card Tilt on Desktop */
-    if (window.matchMedia && window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion) {
+    /* 3D Card Tilt + Specular Spotlight on Desktop */
+    if (isFinePointer && !prefersReducedMotion) {
       staggeredGrid.querySelectorAll(".gallery-item").forEach(function (card) {
         card.addEventListener("pointermove", function (e) {
           const r = card.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width - 0.5;
-          const y = (e.clientY - r.top) / r.height - 0.5;
-          card.style.transform = "perspective(900px) translateY(-5px) rotateY(" + (x * 6).toFixed(2) + "deg) rotateX(" + (-y * 6).toFixed(2) + "deg)";
+          const px = e.clientX - r.left;
+          const py = e.clientY - r.top;
+          const x = px / r.width - 0.5;
+          const y = py / r.height - 0.5;
+          card.style.setProperty("--mx", px.toFixed(1) + "px");
+          card.style.setProperty("--my", py.toFixed(1) + "px");
+          card.style.transform = "perspective(950px) translateY(-6px) rotateY(" + (x * 6.5).toFixed(2) + "deg) rotateX(" + (-y * 6.5).toFixed(2) + "deg)";
         }, { passive: true });
         card.addEventListener("pointerleave", function () {
           card.style.transform = "";
@@ -2461,16 +3225,17 @@ STRICT CONSTRAINTS:
     const idx = PROJECTS.findIndex(function (item) { return item.id === id; });
     const p = PROJECTS[idx] || PROJECTS[0];
     activeProject = p;
-    caseBarLabel.textContent = p.title + " · " + p.tag;
+    caseBarLabel.textContent = p.index + " · " + p.title + " · " + p.tag;
 
     const prevProject = idx > 0 ? PROJECTS[idx - 1] : null;
-    const prevNavBtn = prevProject
-      ? '<button type="button" class="pill-btn pill-white" data-switch-case="' + prevProject.id + '" style="border-color:var(--line-strong)"><span>← Previous: ' + prevProject.title + '</span></button>'
-      : '<span></span>';
+    const nextProject = idx < PROJECTS.length - 1 ? PROJECTS[idx + 1] : null;
+    const switchNav = '<div style="display:flex;flex-wrap:wrap;gap:8px">' +
+      (prevProject ? '<button type="button" class="pill-btn pill-outline-dark" data-switch-case="' + prevProject.id + '"><span>← ' + prevProject.title + '</span></button>' : '') +
+      (nextProject ? '<button type="button" class="pill-btn pill-outline-dark" data-switch-case="' + nextProject.id + '"><span>' + nextProject.title + ' →</span></button>' : '') +
+      '</div>';
 
     let topVisualHtml = "";
 
-    /* 1. Prompt Design: Left Bad Prompt Box + Right Good Prompt Box -> Results Comparison Images */
     if (p.comparison) {
       topVisualHtml +=
         '<div class="prompt-compare-grid">' +
@@ -2492,7 +3257,6 @@ STRICT CONSTRAINTS:
         '<div class="results-kicker">Results Comparison · Click Either Image to Zoom</div>';
     }
 
-    /* 2. Image Gallery (Fast Bite 4 images OR Prompt Design 2 comparison result images) */
     if (p.gallery && p.gallery.length) {
       topVisualHtml +=
         '<div class="case-gallery-first">' +
@@ -2508,7 +3272,6 @@ STRICT CONSTRAINTS:
         '</div>';
     }
 
-    /* 3. Student Master Prompts: 4 Full Production Master Prompt Cards with 1-Click Copy */
     if (p.masterPrompts && p.masterPrompts.length) {
       topVisualHtml +=
         '<div class="master-prompts-grid">' +
@@ -2536,7 +3299,7 @@ STRICT CONSTRAINTS:
         '<p class="case-short-desc">' + escapeHtml(p.summary) + '</p>' +
       '</div>' +
       '<div class="case-footer-nav">' +
-        prevNavBtn +
+        switchNav +
         '<button type="button" class="pill-btn pill-obsidian" id="footerCloseCaseBtn">Back to portfolio</button>' +
       '</div>';
 
@@ -2552,18 +3315,20 @@ STRICT CONSTRAINTS:
         const mpIdx = parseInt(btn.getAttribute("data-copy-mp"), 10);
         const mpItem = p.masterPrompts && p.masterPrompts[mpIdx];
         if (!mpItem) return;
-        copyWithFallback(mpItem.prompt, "Copied: " + mpItem.title);
+        copyWithFallback(mpItem.prompt, "Copied: " + mpItem.title, function () {
+          btn.textContent = "Copied ✓";
+          setTimeout(function () { btn.textContent = "Copy Prompt"; }, 1800);
+        });
       });
     });
 
-    const prevBtn = caseDialogBody.querySelector("[data-switch-case]");
-    if (prevBtn) {
-      prevBtn.addEventListener("click", function () {
-        renderCaseStudyContent(prevBtn.getAttribute("data-switch-case"));
+    caseDialogBody.querySelectorAll("[data-switch-case]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        renderCaseStudyContent(btn.getAttribute("data-switch-case"));
         caseDialog.scrollTop = 0;
         $("closeCaseBtn").focus({ preventScroll: true });
       });
-    }
+    });
 
     const footerClose = $("footerCloseCaseBtn");
     if (footerClose) {
@@ -2645,12 +3410,15 @@ STRICT CONSTRAINTS:
     closeCaseDialog();
   });
 
-  /* Lightbox Controls */
+  /* Lightbox Controls + Mobile Horizontal Swipe */
   function syncViewerSlide() {
-    if (!activeProject) return;
+    if (!activeProject || !activeProject.gallery.length) return;
     const item = activeProject.gallery[activeSlideIndex];
-    $("viewerImg").src = PREVIEWS[item.key];
-    $("viewerImg").alt = item.label;
+    const img = $("viewerImg");
+    img.style.opacity = "0.25";
+    img.src = PREVIEWS[item.key];
+    img.alt = item.label;
+    requestAnimationFrame(function () { img.style.opacity = "1"; });
     $("viewerCaption").textContent = item.label;
     $("viewerCounter").textContent = (activeSlideIndex + 1) + " / " + activeProject.gallery.length;
     $("viewerStage").classList.remove("zoomed");
@@ -2686,12 +3454,12 @@ STRICT CONSTRAINTS:
   });
 
   $("viewerPrevBtn").addEventListener("click", function () {
-    if (!activeProject) return;
+    if (!activeProject || !activeProject.gallery.length) return;
     activeSlideIndex = (activeSlideIndex - 1 + activeProject.gallery.length) % activeProject.gallery.length;
     syncViewerSlide();
   });
   $("viewerNextBtn").addEventListener("click", function () {
-    if (!activeProject) return;
+    if (!activeProject || !activeProject.gallery.length) return;
     activeSlideIndex = (activeSlideIndex + 1) % activeProject.gallery.length;
     syncViewerSlide();
   });
@@ -2709,6 +3477,23 @@ STRICT CONSTRAINTS:
       $("viewerNextBtn").click();
     }
   });
+
+  /* Native Touch Swipe on Lightbox Stage */
+  let touchStartX = 0, touchStartY = 0;
+  $("viewerStage").addEventListener("touchstart", function (e) {
+    if (e.touches.length !== 1) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  $("viewerStage").addEventListener("touchend", function (e) {
+    if ($("viewerStage").classList.contains("zoomed") || !e.changedTouches.length) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      if (dx < 0) $("viewerNextBtn").click();
+      else $("viewerPrevBtn").click();
+    }
+  }, { passive: true });
 
   /* ==========================================================================
      MOBILE NAVIGATION DRAWER
@@ -2760,10 +3545,11 @@ STRICT CONSTRAINTS:
     if (window.innerWidth > 860 && !mobDrawer.hidden) {
       setMobileMenu(false);
     }
+    syncNavPill();
   });
 
   /* ==========================================================================
-     GMAIL MESSAGE COMPOSER (With Subject Field)
+     GMAIL MESSAGE COMPOSER
      ========================================================================== */
   const senderName = $("senderName");
   const senderSubject = $("senderSubject");
@@ -2819,16 +3605,47 @@ STRICT CONSTRAINTS:
   });
 
   /* ==========================================================================
-     SCROLL PROGRESS, SCROLL-SPY, REVEALS & SMOOTH EDITORIAL CURSOR
+     SCROLL PROGRESS, SMART SLIDING NAV PILL & REVEALS
      ========================================================================== */
+  const siteHeader = $("siteHeader");
   const scrollProgressBar = $("scrollProgressBar");
+  const desktopNav = $("desktopNav");
+  const navPillSlider = $("navPillSlider");
   const spyLinks = document.querySelectorAll("[data-spy]");
   const spySections = document.querySelectorAll("[data-sec]");
+  let hoveredNavItem = null;
+
+  function moveNavPillTo(targetEl) {
+    if (!desktopNav || !navPillSlider || !targetEl || window.innerWidth <= 860) return;
+    const navRect = desktopNav.getBoundingClientRect();
+    const itemRect = targetEl.getBoundingClientRect();
+    if (itemRect.width < 1) return;
+    navPillSlider.style.width = itemRect.width.toFixed(1) + "px";
+    navPillSlider.style.transform = "translate3d(" + (itemRect.left - navRect.left).toFixed(1) + "px,0,0)";
+    navPillSlider.style.opacity = "1";
+  }
+
+  function syncNavPill() {
+    const active = hoveredNavItem || desktopNav.querySelector("a.is-active") || desktopNav.querySelector("a");
+    if (active) moveNavPillTo(active);
+  }
+
+  desktopNav.querySelectorAll("a, button").forEach(function (item) {
+    item.addEventListener("pointerenter", function () {
+      hoveredNavItem = item;
+      moveNavPillTo(item);
+    });
+  });
+  desktopNav.addEventListener("pointerleave", function () {
+    hoveredNavItem = null;
+    syncNavPill();
+  });
 
   function updateScrollState() {
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const ratio = docHeight > 0 ? Math.min(Math.max(window.scrollY / docHeight, 0), 1) : 0;
     scrollProgressBar.style.transform = "scaleX(" + ratio + ")";
+    siteHeader.classList.toggle("is-scrolled", window.scrollY > 18);
 
     const offset = window.scrollY + window.innerHeight * 0.4;
     let activeSec = "work";
@@ -2840,12 +3657,13 @@ STRICT CONSTRAINTS:
     spyLinks.forEach(function (link) {
       link.classList.toggle("is-active", link.getAttribute("data-spy") === activeSec);
     });
+    if (!hoveredNavItem) syncNavPill();
   }
 
   window.addEventListener("scroll", updateScrollState, { passive: true });
-  updateScrollState();
-
   renderShowcaseCards();
+  updateScrollState();
+  setTimeout(syncNavPill, 150);
 
   const revealObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -2854,13 +3672,12 @@ STRICT CONSTRAINTS:
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.05 });
+  }, { threshold: 0.06 });
 
   document.querySelectorAll(".rv").forEach(function (el) {
     if (prefersReducedMotion) el.classList.add("in");
     else revealObserver.observe(el);
   });
-
 
   /* ==========================================================================
      CV MODAL & 1-CLICK EMBEDDED PDF DOWNLOAD
@@ -2930,13 +3747,16 @@ STRICT CONSTRAINTS:
     closeCvDialog();
   });
 
-  /* Smooth Editorial Cursor Ring + Dot + Ambient Glow (Desktop Only) */
+  /* ==========================================================================
+     DESKTOP CURSOR RING + SPOTLIGHT + MAGNETIC CTAS + PORTRAIT PARALLAX
+     ========================================================================== */
   const cursorRing = $("cursorRing");
   const cursorDot = $("cursorDot");
   const pointerGlow = $("pointerGlow");
   const portraitFrame = $("heroPortraitFrame");
+  const portraitBadge = $("portraitFloatBadge");
 
-  if (window.matchMedia && window.matchMedia("(pointer: fine)").matches && !prefersReducedMotion) {
+  if (isFinePointer && !prefersReducedMotion) {
     let mouseX = -100, mouseY = -100;
     let ringX = -100, ringY = -100;
     let rafActive = false;
@@ -2980,15 +3800,37 @@ STRICT CONSTRAINTS:
       pointerGlow.style.opacity = "0";
     });
 
+    /* Subtle Magnetic Pull on Primary CTAs */
+    document.querySelectorAll("[data-magnetic]").forEach(function (el) {
+      el.addEventListener("pointermove", function (e) {
+        const r = el.getBoundingClientRect();
+        const dx = ((e.clientX - r.left) / r.width - 0.5) * 8;
+        const dy = ((e.clientY - r.top) / r.height - 0.5) * 6;
+        el.style.transform = "translate3d(" + dx.toFixed(1) + "px," + (dy - 1.5).toFixed(1) + "px,0)";
+      }, { passive: true });
+      el.addEventListener("pointerleave", function () {
+        el.style.transform = "";
+      });
+    });
+
+    /* Portrait 3D Tilt + Specular Spotlight + Floating Badge Parallax */
     if (portraitFrame) {
       portraitFrame.addEventListener("pointermove", function (e) {
         const r = portraitFrame.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        portraitFrame.style.transform = "perspective(900px) rotateY(" + (x * 6).toFixed(2) + "deg) rotateX(" + (-y * 6).toFixed(2) + "deg)";
+        const px = e.clientX - r.left;
+        const py = e.clientY - r.top;
+        const x = px / r.width - 0.5;
+        const y = py / r.height - 0.5;
+        portraitFrame.style.setProperty("--mx", px.toFixed(1) + "px");
+        portraitFrame.style.setProperty("--my", py.toFixed(1) + "px");
+        portraitFrame.style.transform = "perspective(950px) rotateY(" + (x * 6.5).toFixed(2) + "deg) rotateX(" + (-y * 6.5).toFixed(2) + "deg)";
+        if (portraitBadge) {
+          portraitBadge.style.transform = "translate3d(" + (x * 10).toFixed(1) + "px," + (y * 8).toFixed(1) + "px,0)";
+        }
       }, { passive: true });
       portraitFrame.addEventListener("pointerleave", function () {
         portraitFrame.style.transform = "";
+        if (portraitBadge) portraitBadge.style.transform = "";
       });
     }
   }
